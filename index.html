@@ -1,0 +1,2320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Resource Naming Tool - Generate Names with Industry Best Practices</title>
+    <meta name="description" content="Generate Azure resource names following Microsoft's best practices and naming conventions. Simple, modern, and intuitive interface.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        azure: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☁️</text></svg>">
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 font-sans antialiased transition-colors duration-200">
+    <!-- Ad Space - Top Banner -->
+    <div id="top-ad" class="hidden bg-gray-100 border-b border-gray-200 text-center py-2 text-sm text-gray-600">
+        <div class="container mx-auto px-4">
+            Advertisement Space - 728x90 Banner
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700 transition-colors duration-200">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="flex items-center justify-center">
+                        <svg class="w-12 h-12" viewBox="0 0 505 505" xmlns="http://www.w3.org/2000/svg">
+                            <circle style="fill:#FD8469;" cx="252.5" cy="252.5" r="252.5"/>
+                            <path style="fill:#FFFFFF;" d="M382.7,208h-3.2c0.1-1.5,0.2-3,0.2-4.5c0-40.1-32.5-72.7-72.7-72.7c-15.8,0-30.3,5.1-42.2,13.6
+                                c-14.9-30.2-45.9-50.9-81.8-50.9c-50.4,0-91.3,40.9-91.3,91.3c0,10.2,1.7,19.9,4.8,29c-20.5,9.7-34.8,30.6-34.8,54.8l0,0
+                                c0,33.5,27.2,60.7,60.7,60.7h260.3c33.5,0,60.7-27.2,60.7-60.7l0,0C443.3,235.2,416.2,208,382.7,208z"/>
+                            <polygon style="fill:#324A5E;" points="210.2,353.8 210.2,277.8 159.4,277.8 159.4,353.8 139.4,353.8 184.8,399.1 230.1,353.8 "/>
+                            <polygon style="fill:#84DBFF;" points="345.6,293.5 345.6,369.5 294.8,369.5 294.8,293.5 274.9,293.5 320.2,248.2 365.6,293.5 "/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Cloud Resource Naming Tool</h1>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">Generate resource names with Industry's best practices</p>
+                    </div>
+                </div>
+                
+                <!-- Dark Mode Toggle -->
+                <div class="flex items-center">
+                    <button id="darkModeToggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200">
+                        <svg id="sunIcon" class="w-5 h-5 text-gray-600 dark:text-gray-300 hidden" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                        </svg>
+                        <svg id="moonIcon" class="w-5 h-5 text-gray-600 dark:text-gray-300" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Ad Space - Header Right -->
+                <div class="hidden bg-gray-100 border border-gray-200 rounded-lg px-4 py-2 text-xs text-gray-500">
+                    Ad Space 300x50
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto">
+            <!-- Sidebar content moved to hidden for now -->
+            <div class="hidden">
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                    <h3 class="font-semibold text-gray-900 mb-4">Quick Tips</h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-start space-x-2">
+                            <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Use hyphens for readability</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Keep names concise but descriptive</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Follow length restrictions</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div>
+                <!-- Cloud Provider Selection -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6 mb-6">
+                    <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">🌩️ Choose Cloud Provider</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <button id="azureProvider" class="provider-btn active relative group bg-gradient-to-r from-blue-500 to-blue-600 text-white p-4 rounded-lg border-2 border-blue-500 hover:from-blue-600 hover:to-blue-700 transition-all duration-200">
+                            <div class="text-center">
+                                <div class="text-3xl mb-2 font-bold">
+                                    <svg class="w-10 h-10 mx-auto" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                                        <path d="M7.47 12.412l3.348-.592.031-.007-1.722-2.049a291.474 291.474 0 01-1.723-2.058c0-.01 1.779-4.909 1.789-4.926a788.95 788.95 0 012.934 5.066l2.95 5.115.023.039-10.948-.001 3.317-.587zM.9 11.788c0-.003.811-1.412 1.803-3.131L4.507 5.53l2.102-1.764C7.765 2.797 8.714 2 8.717 2a.37.37 0 01-.033.085L6.4 6.981 4.16 11.789l-1.63.002c-.897.001-1.63 0-1.63-.003z"/>
+                                    </svg>
+                                </div>
+                                <div class="font-semibold">Microsoft Azure</div>
+                                <div class="text-sm opacity-90">60+ Resources</div>
+                            </div>
+                        </button>
+                        
+                        <button id="awsProvider" class="provider-btn relative group bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 p-4 rounded-lg border-2 border-gray-200 dark:border-gray-600 hover:border-orange-400 hover:bg-orange-50 dark:hover:bg-orange-900/20 transition-all duration-200">
+                            <div class="text-center">
+                                <div class="text-3xl mb-2 font-bold text-orange-500">
+                                    <svg class="w-10 h-10 mx-auto" viewBox="0 -30 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M122.714 62.703c5.28-.643 16.924-2.027 18.997.643 2.072 2.621-2.319 13.649-4.293 18.544-.592 1.484.691 2.077 2.023.94 8.684-7.319 10.954-22.6 9.178-24.825-1.777-2.175-17.023-4.055-26.3 2.473-1.431 1.038-1.184 2.423.395 2.225z" fill="#F90"/>
+                                        <path d="M74.852 89.456c20.28 0 43.865-6.38 60.099-18.396 2.664-1.978.345-4.994-2.369-3.758-18.207 7.714-37.993 11.473-56.003 11.473-26.694 0-52.5-7.368-73.42-19.533-1.827-1.088-3.208.791-1.679 2.176 19.343 17.505 44.951 28.038 73.372 28.038z" fill="#F90"/>
+                                        <path d="M42.632 32.835c0 1.83.197 3.313.542 4.401a26.505 26.505 0 001.58 3.56c.246.396.345.792.345 1.138 0 .495-.296.99-.938 1.484l-3.108 2.077c-.444.296-.889.445-1.283.445-.494 0-.987-.248-1.48-.693a15.29 15.29 0 01-1.777-2.324 38.28 38.28 0 01-1.53-2.918c-3.848 4.55-8.684 6.825-14.506 6.825-4.145 0-7.45-1.187-9.868-3.56-2.418-2.374-3.652-5.54-3.652-9.495 0-4.204 1.48-7.616 4.49-10.187 3.01-2.572 7.007-3.857 12.09-3.857 1.677 0 3.404.148 5.23.395 1.825.248 3.7.643 5.674 1.088v-3.61c0-3.758-.79-6.379-2.32-7.912-1.578-1.533-4.243-2.274-8.042-2.274-1.727 0-3.503.197-5.329.642a39.247 39.247 0 00-5.329 1.682 14.14 14.14 0 01-1.727.643c-.345.098-.592.148-.79.148-.69 0-1.036-.494-1.036-1.533V6.577c0-.791.1-1.385.346-1.73.246-.347.69-.693 1.381-1.04 1.727-.89 3.8-1.631 6.217-2.225C20.23.94 22.797.642 25.51.642c5.872 0 10.164 1.336 12.927 4.006 2.714 2.67 4.096 6.726 4.096 12.165v16.022h.099zm-20.033 7.517c1.628 0 3.306-.297 5.082-.89 1.776-.594 3.355-1.682 4.687-3.165.79-.94 1.382-1.978 1.678-3.165.296-1.187.493-2.621.493-4.302v-2.077a41.135 41.135 0 00-4.539-.84 37.099 37.099 0 00-4.638-.298c-3.306 0-5.724.643-7.352 1.978-1.628 1.336-2.418 3.215-2.418 5.687 0 2.324.592 4.055 1.826 5.242 1.184 1.236 2.911 1.83 5.18 1.83zm39.621 5.34c-.888 0-1.48-.148-1.875-.494-.394-.297-.74-.99-1.036-1.929L47.714 5.044c-.296-.99-.444-1.632-.444-1.978 0-.791.394-1.236 1.184-1.236h4.835c.938 0 1.58.148 1.925.494.395.297.69.99.987 1.929l8.29 32.736 7.697-32.736c.246-.99.542-1.632.937-1.929.395-.297 1.085-.494 1.974-.494h3.947c.938 0 1.579.148 1.974.494.395.297.74.99.937 1.929l7.796 33.132L98.29 4.253c.295-.99.64-1.632.986-1.929.395-.297 1.036-.494 1.925-.494h4.588c.79 0 1.234.395 1.234 1.236 0 .247-.049.494-.099.791a7.041 7.041 0 01-.345 1.236L94.688 43.32c-.297.989-.642 1.631-1.037 1.928-.394.297-1.036.495-1.875.495h-4.243c-.938 0-1.58-.149-1.974-.495-.394-.346-.74-.989-.937-1.978l-7.648-31.895-7.599 31.846c-.247.989-.543 1.632-.938 1.978-.394.346-1.085.494-1.973.494H62.22zm63.405 1.336c-2.566 0-5.132-.297-7.599-.89-2.467-.594-4.391-1.237-5.674-1.979-.79-.445-1.332-.94-1.53-1.384a3.503 3.503 0 01-.296-1.385v-2.522c0-1.038.395-1.533 1.135-1.533.296 0 .592.05.888.148.296.1.74.297 1.234.495a26.791 26.791 0 005.428 1.73c1.973.396 3.898.594 5.871.594 3.109 0 5.527-.544 7.204-1.632 1.678-1.088 2.566-2.67 2.566-4.698 0-1.384-.444-2.521-1.332-3.461-.888-.94-2.566-1.78-4.984-2.571l-7.154-2.226c-3.602-1.137-6.267-2.818-7.895-5.044-1.628-2.176-2.467-4.599-2.467-7.17 0-2.077.444-3.907 1.332-5.489.888-1.582 2.072-2.967 3.553-4.055 1.48-1.137 3.157-1.978 5.131-2.571 1.974-.594 4.046-.841 6.217-.841 1.086 0 2.221.05 3.306.198 1.135.148 2.171.346 3.207.544.987.247 1.925.494 2.813.79.888.298 1.579.594 2.072.891.691.396 1.185.791 1.481 1.236.296.396.444.94.444 1.632V8.16c0 1.039-.395 1.583-1.135 1.583-.395 0-1.036-.198-1.875-.594-2.813-1.285-5.971-1.928-9.474-1.928-2.812 0-5.033.445-6.562 1.384-1.53.94-2.319 2.374-2.319 4.402 0 1.384.493 2.57 1.48 3.51s2.812 1.88 5.427 2.72l7.007 2.226c3.553 1.137 6.118 2.72 7.648 4.747 1.53 2.027 2.27 4.351 2.27 6.923 0 2.126-.444 4.055-1.283 5.736-.888 1.681-2.072 3.165-3.602 4.352-1.53 1.236-3.355 2.126-5.477 2.769-2.22.692-4.54 1.039-7.056 1.039z" fill="#252F3E"/>
+                                    </svg>
+                                </div>
+                                <div class="font-semibold">Amazon AWS</div>
+                                <div class="text-sm text-gray-500">40+ Resources</div>
+                            </div>
+                        </button>
+                        
+                        <button id="gcpProvider" class="provider-btn relative group bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 p-4 rounded-lg border-2 border-gray-200 dark:border-gray-600 hover:border-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-200">
+                            <div class="text-center">
+                                <div class="text-3xl mb-2 font-bold">
+                                    <svg class="w-10 h-10 mx-auto" viewBox="0 -25 256 256" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
+                                        <path d="M170.2517,56.8186 L192.5047,34.5656 L193.9877,25.1956 C153.4367,-11.6774 88.9757,-7.4964 52.4207,33.9196 C42.2667,45.4226 34.7337,59.7636 30.7167,74.5726 L38.6867,73.4496 L83.1917,66.1106 L86.6277,62.5966 C106.4247,40.8546 139.8977,37.9296 162.7557,56.4286 L170.2517,56.8186 Z" fill="#EA4335"/>
+                                        <path d="M224.2048,73.9182 C219.0898,55.0822 208.5888,38.1492 193.9878,25.1962 L162.7558,56.4282 C175.9438,67.2042 183.4568,83.4382 183.1348,100.4652 L183.1348,106.0092 C198.4858,106.0092 210.9318,118.4542 210.9318,133.8052 C210.9318,149.1572 198.4858,161.2902 183.1348,161.2902 L127.4638,161.2902 L121.9978,167.2242 L121.9978,200.5642 L127.4638,205.7952 L183.1348,205.7952 C223.0648,206.1062 255.6868,174.3012 255.9978,134.3712 C256.1858,110.1682 244.2528,87.4782 224.2048,73.9182" fill="#4285F4"/>
+                                        <path d="M71.8704,205.7957 L127.4634,205.7957 L127.4634,161.2897 L71.8704,161.2897 C67.9094,161.2887 64.0734,160.4377 60.4714,158.7917 L52.5844,161.2117 L30.1754,183.4647 L28.2234,191.0387 C40.7904,200.5277 56.1234,205.8637 71.8704,205.7957" fill="#34A853"/>
+                                        <path d="M71.8704,61.4255 C31.9394,61.6635 -0.2366,94.2275 0.0014,134.1575 C0.1344,156.4555 10.5484,177.4455 28.2234,191.0385 L60.4714,158.7915 C46.4804,152.4705 40.2634,136.0055 46.5844,122.0155 C52.9044,108.0255 69.3704,101.8085 83.3594,108.1285 C89.5244,110.9135 94.4614,115.8515 97.2464,122.0155 L129.4944,89.7685 C115.7734,71.8315 94.4534,61.3445 71.8704,61.4255" fill="#FBBC05"/>
+                                    </svg>
+                                </div>
+                                <div class="font-semibold">Google Cloud</div>
+                                <div class="text-sm text-gray-500">50+ Resources</div>
+                            </div>
+                        </button>
+                    </div>
+                    
+                    <!-- Provider Info -->
+                    <div id="providerInfo" class="mt-4 p-4 bg-blue-50 dark:bg-gray-800 border border-blue-200 dark:border-gray-600 rounded-lg">
+                        <div class="flex items-start space-x-3">
+                            <svg class="w-5 h-5 text-blue-500 dark:text-blue-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+
+                            <div>
+                                <h4 class="font-medium text-blue-900 dark:text-blue-100 mb-1">Microsoft Azure Selected</h4>
+                                <div id="providerDescription" class="text-sm text-blue-700 dark:text-blue-200">
+                                    Generate Azure resource names following Microsoft's Cloud Adoption Framework best practices.
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resource Type Selection -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6 mb-6">
+                    <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Select Resource Type</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label for="category" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Category</label>
+                            <select id="category" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white">
+                                <option value="">Select Category</option>
+                                <option value="compute">Compute & Web</option>
+                                <option value="storage">Storage</option>
+                                <option value="databases">Databases</option>
+                                <option value="networking">Networking</option>
+                                <option value="analytics">Analytics & IoT</option>
+                                <option value="ai">AI & Machine Learning</option>
+                                <option value="security">Security</option>
+                                <option value="integration">Integration</option>
+                                <option value="management">Management & Governance</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="resourceType" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Resource Type</label>
+                            <select id="resourceType" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white" disabled>
+                                <option value="">Select Resource Type</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Resource Type Info -->
+                    <div id="resourceInfo" class="hidden bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-lg p-4 mb-4">
+                        <div class="flex items-start space-x-3">
+                            <svg class="w-5 h-5 text-blue-500 dark:text-blue-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div>
+                                <h4 class="font-medium text-blue-900 dark:text-blue-100 mb-1">Naming Guidelines</h4>
+                                <div id="resourceGuidelines" class="text-sm text-blue-700 dark:text-blue-200"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Microsoft Best Practices Guide -->
+                <div class="bg-blue-50 dark:bg-gray-800 border border-blue-200 dark:border-gray-600 rounded-lg p-4 mb-6">
+                    <div class="flex items-start space-x-3">
+                        <svg class="w-5 h-5 text-blue-500 dark:text-blue-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        <div>
+                            <h4 id="bestPracticesTitle" class="font-medium text-blue-900 dark:text-white mb-2">📋 Microsoft Azure Best Practices</h4>
+                            <div id="bestPracticesContent" class="text-sm text-blue-800 dark:text-white space-y-2">
+                                <p><strong>Customizable Components (Text Input):</strong></p>
+                                <ul class="list-disc list-inside ml-4 space-y-1">
+                                    <li><strong>Organization:</strong> Your company/organization identifier</li>
+                                    <li><strong>Business Unit:</strong> Your department naming (e.g., fin, mktg, hr, product)</li>
+                                    <li><strong>Workload/Application:</strong> Your project or application name</li>
+                                    <li><strong>Instance:</strong> Your numbering scheme (001, 01, etc.)</li>
+                                </ul>
+                                <p class="mt-3"><strong>Standardized Components (Dropdown):</strong></p>
+                                <ul class="list-disc list-inside ml-4 space-y-1">
+                                    <li><strong>Resource Type:</strong> Official Azure service abbreviations</li>
+                                    <li><strong>Environment:</strong> Standard deployment stages (prod, dev, test, stage)</li>
+                                    <li><strong>Region:</strong> Official Azure region codes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Naming Components -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6 mb-6">
+                    <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Naming Components</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Organization -->
+                        <div>
+                            <label for="organization" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                Organization <span class="text-red-500">*</span>
+                            </label>
+                            <input type="text" id="organization" placeholder="e.g., contoso, acme" 
+                                   class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white dark:placeholder-gray-400">
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Company or organization name</p>
+                        </div>
+
+                        <!-- Business Unit -->
+                        <div>
+                            <label for="businessUnit" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Business Unit</label>
+                            <input type="text" id="businessUnit" placeholder="e.g., fin, mktg, product, it, hr, corp" 
+                                   class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white dark:placeholder-gray-400">
+                            <p class="text-xs text-gray-500 mt-1">Business unit or department (organization-specific)</p>
+                        </div>
+
+                        <!-- Workload/Application -->
+                        <div>
+                            <label for="workload" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                Workload/Application <span class="text-red-500">*</span>
+                            </label>
+                            <input type="text" id="workload" placeholder="e.g., navigator, emissions, sharepoint" 
+                                   class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white dark:placeholder-gray-400">
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Name of the workload or application</p>
+                        </div>
+
+                        <!-- Environment -->
+                        <div>
+                            <label for="environment" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                Environment <span class="text-red-500">*</span>
+                            </label>
+                            <select id="environment" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white">
+                                <option value="">Select Environment</option>
+                                <option value="prod">Production (prod)</option>
+                                <option value="dev">Development (dev)</option>
+                                <option value="test">Test (test)</option>
+                                <option value="stage">Staging (stage)</option>
+                                <option value="qa">QA (qa)</option>
+                                <option value="uat">UAT (uat)</option>
+                            </select>
+                        </div>
+
+                        <!-- Region -->
+                        <div>
+                            <label for="region" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                Region <span class="text-red-500">*</span>
+                            </label>
+                            <select id="region" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white">
+                                <option value="">Select Region</option>
+                                <option value="eastus">East US (eastus)</option>
+                                <option value="eastus2">East US 2 (eastus2)</option>
+                                <option value="westus">West US (westus)</option>
+                                <option value="westus2">West US 2 (westus2)</option>
+                                <option value="westus3">West US 3 (westus3)</option>
+                                <option value="centralus">Central US (centralus)</option>
+                                <option value="northcentralus">North Central US (northcentralus)</option>
+                                <option value="southcentralus">South Central US (southcentralus)</option>
+                                <option value="westcentralus">West Central US (westcentralus)</option>
+                                <option value="northeurope">North Europe (northeurope)</option>
+                                <option value="westeurope">West Europe (westeurope)</option>
+                                <option value="eastasia">East Asia (eastasia)</option>
+                                <option value="southeastasia">Southeast Asia (southeastasia)</option>
+                                <option value="japaneast">Japan East (japaneast)</option>
+                                <option value="japanwest">Japan West (japanwest)</option>
+                                <option value="brazilsouth">Brazil South (brazilsouth)</option>
+                                <option value="australiaeast">Australia East (australiaeast)</option>
+                                <option value="australiasoutheast">Australia Southeast (australiasoutheast)</option>
+                                <option value="southindia">South India (southindia)</option>
+                                <option value="centralindia">Central India (centralindia)</option>
+                                <option value="westindia">West India (westindia)</option>
+                                <option value="canadacentral">Canada Central (canadacentral)</option>
+                                <option value="canadaeast">Canada East (canadaeast)</option>
+                                <option value="uksouth">UK South (uksouth)</option>
+                                <option value="ukwest">UK West (ukwest)</option>
+                                <option value="koreacentral">Korea Central (koreacentral)</option>
+                                <option value="koreasouth">Korea South (koreasouth)</option>
+                            </select>
+                        </div>
+
+                        <!-- Instance -->
+                        <div>
+                            <label for="instance" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                Instance <span class="text-red-500">*</span>
+                            </label>
+                            <input type="text" id="instance" placeholder="e.g., 001, 01" value="001"
+                                   class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white dark:placeholder-gray-400">
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Instance number (001, 01, etc.)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Terraform Generation Options -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6 mb-6">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <svg class="w-6 h-6" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5.321 7.576L1 5.051V0l4.321 2.525v5.051zM10.117 16l-4.321-2.525V8.424l4.321 2.525V16zM5.796 2.819l4.321 2.528v5.048L5.796 7.869V2.82zm4.796 7.576l4.321-2.523V2.819l-4.321 2.528v5.048z" fill="#7B42BC"/>
+                        </svg>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Infrastructure as Code</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <!-- Terraform Toggle -->
+                        <div class="flex items-center space-x-3">
+                            <input type="checkbox" id="generateTerraform" class="w-4 h-4 text-blue-600 bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600 rounded focus:ring-blue-500 focus:ring-2">
+                            <label for="generateTerraform" class="text-sm font-medium text-gray-700 dark:text-gray-300">
+                                Generate Terraform script for this resource
+                            </label>
+                        </div>
+                        
+                        <!-- Terraform Options (hidden by default) -->
+                        <div id="terraformOptions" class="hidden bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg p-4 space-y-3">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="terraformProviderVersion" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Provider Version</label>
+                                    <select id="terraformProviderVersion" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white">
+                                        <option value="">Select Provider Version</option>
+                                        <!-- Options will be populated dynamically based on selected cloud provider -->
+                                    </select>
+                                </div>
+                                <div>
+                                    <label id="containerResourceLabel" for="containerResource" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Container Resource</label>
+                                    <select id="containerResource" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white">
+                                        <option value="">Select Container Resource</option>
+                                        <!-- Options will be populated dynamically based on selected cloud provider -->
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="location" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Location Variable</label>
+                                <input type="text" id="location" placeholder="var.location" value="var.location"
+                                       class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bulk Generation Options -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6 mb-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">🔢 Bulk Generation</h3>
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" id="bulkGeneration" class="sr-only peer">
+                            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                            <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Enable Bulk Generation</span>
+                        </label>
+                    </div>
+                    
+                    <div id="bulkOptions" class="hidden">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="bulkCount" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Number of Names</label>
+                                <input type="number" id="bulkCount" min="2" max="50" value="5" 
+                                       class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white">
+                            </div>
+                            <div>
+                                <label for="bulkNumbering" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Numbering Style</label>
+                                <select id="bulkNumbering" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white">
+                                    <option value="001">001, 002, 003...</option>
+                                    <option value="01">01, 02, 03...</option>
+                                    <option value="1">1, 2, 3...</option>
+                                    <option value="a">a, b, c...</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <label class="flex items-center">
+                                <input type="checkbox" id="bulkIncrement" checked class="rounded border-gray-300 dark:border-gray-600 text-blue-600 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                                <span class="ml-2 text-sm text-gray-700 dark:text-gray-300">Auto-increment instance numbers</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Generate Button -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6 mb-6">
+                    <button id="generateBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-md transition-colors duration-200 disabled:bg-gray-400 disabled:cursor-not-allowed relative" disabled>
+                        <span id="generateBtnText">Generate Resource Name</span>
+                        <div id="generateBtnSpinner" class="hidden absolute inset-0 flex items-center justify-center">
+                            <div class="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                        </div>
+                    </button>
+                    <div class="mt-2 text-center">
+                        <span class="text-sm text-gray-500 dark:text-gray-400">
+                            <kbd class="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded text-xs">Ctrl+Enter</kbd> to generate
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Result -->
+                <div id="result" class="hidden bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 id="resultTitle" class="text-xl font-semibold text-gray-900 dark:text-white">Generated Name</h2>
+                        <button id="copyAllBtn" class="hidden bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+                            Copy All
+                        </button>
+                    </div>
+                    
+                    <!-- Single Result -->
+                    <div id="singleResult">
+                        <div class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700 rounded-lg p-4 mb-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-medium text-green-900 dark:text-green-100 mb-1">Resource Name</h3>
+                                    <code id="generatedName" class="text-lg font-mono text-green-800 dark:text-green-200 bg-green-100 dark:bg-green-800 px-2 py-1 rounded"></code>
+                                </div>
+                                <button id="copyBtn" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+                                    Copy
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bulk Results -->
+                    <div id="bulkResults" class="hidden">
+                        <div class="space-y-2 max-h-96 overflow-y-auto" id="bulkResultsList">
+                            <!-- Bulk results will be populated here -->
+                        </div>
+                    </div>
+
+                    <div id="nameBreakdown" class="space-y-2"></div>
+                    
+                    <div id="validation" class="mt-4"></div>
+
+                    <!-- Suggested Tags Section -->
+                    <div id="suggestedTags" class="mt-6 bg-blue-50 dark:bg-gray-800 border border-blue-200 dark:border-gray-600 rounded-lg p-4">
+                        <h3 class="text-lg font-medium text-blue-900 dark:text-white mb-3">🏷️ Suggested Resource Tags</h3>
+                        <div class="text-sm text-blue-800 dark:text-gray-300 mb-3">Based on Microsoft Azure best practices for resource tagging:</div>
+                        <div id="tagsList" class="grid grid-cols-1 md:grid-cols-2 gap-2"></div>
+                        <div class="mt-3 text-xs text-blue-600 dark:text-gray-400">
+                            💡 <strong>Tip:</strong> Use these tags to organize, track costs, and manage your Azure resources effectively.
+                        </div>
+                    </div>
+
+                    <!-- Best Practices Notice -->
+                    <div class="mt-6 bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                        <h3 class="text-lg font-medium text-yellow-900 mb-2">📚 Microsoft Best Practices Compliance</h3>
+                        <div class="text-sm text-yellow-800">
+                            This naming convention follows official Microsoft Azure Cloud Adoption Framework guidelines:
+                            <ul class="list-disc list-inside mt-2 space-y-1">
+                                <li><a href="https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming" target="_blank" class="text-blue-600 hover:underline">Resource Naming Conventions</a></li>
+                                <li><a href="https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-abbreviations" target="_blank" class="text-blue-600 hover:underline">Resource Abbreviations</a></li>
+                                <li><a href="https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging" target="_blank" class="text-blue-600 hover:underline">Resource Tagging Strategy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Terraform Script Section -->
+                    <div id="terraformScript" class="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-4 hidden">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center space-x-2">
+                                <svg class="w-6 h-6" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5.321 7.576L1 5.051V0l4.321 2.525v5.051zM10.117 16l-4.321-2.525V8.424l4.321 2.525V16zM5.796 2.819l4.321 2.528v5.048L5.796 7.869V2.82zm4.796 7.576l4.321-2.523V2.819l-4.321 2.528v5.048z" fill="#7B42BC"/>
+                                </svg>
+                                <h3 class="text-lg font-medium text-gray-900">Terraform Script</h3>
+                            </div>
+                            <button id="copyTerraformBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+                                Copy Script
+                            </button>
+                        </div>
+                        <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+                            <pre id="terraformCode" class="text-green-400 text-sm font-mono leading-relaxed"></pre>
+                        </div>
+                        <div class="mt-3 text-xs text-gray-600">
+                            💡 <strong>Tip:</strong> This Terraform script includes best practices for resource naming, tagging, and configuration.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer with Ad Space -->
+    <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-12">
+        <div class="container mx-auto px-4 py-8">
+            <!-- Ad Space - Footer -->
+            <div class="hidden bg-gray-100 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg p-4 text-center text-sm text-gray-500 dark:text-gray-400 mb-6">
+                Advertisement Space - 728x90 Footer Banner
+            </div>
+            
+            <div class="text-center text-gray-600 dark:text-gray-300">
+                <p class="mb-2">Built with ❤️ for Cloud enthusiasts</p>
+                <p class="text-sm">
+                    Based on Industry Best Practices
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white dark:bg-gray-800 rounded-lg p-6 flex items-center space-x-3">
+            <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-500"></div>
+            <span class="text-gray-900 dark:text-white">Generating names...</span>
+        </div>
+    </div>
+
+    <!-- Inline JavaScript for immediate functionality -->
+    <script>
+        // Multi-Cloud Resource Types Data
+        const CLOUD_RESOURCE_TYPES = {
+            'azure': {
+                'compute': [
+                    { name: 'Virtual Machine', shortName: 'vm', scope: 'resource-group', minLength: 1, maxLength: 64, validCharacters: 'alphanumeric, hyphens, underscores', caseSensitive: false, examples: ['vm-web-prod-eastus-001'], description: 'Azure Virtual Machine' },
+                    { name: 'Web App', shortName: 'app', scope: 'global', minLength: 1, maxLength: 60, validCharacters: 'alphanumeric, hyphens', caseSensitive: false, examples: ['app-navigator-prod-001'], description: 'Azure App Service Web App' },
+                    { name: 'Function App', shortName: 'func', scope: 'global', minLength: 2, maxLength: 60, validCharacters: 'alphanumeric, hyphens', caseSensitive: false, examples: ['func-processor-prod-001'], description: 'Azure Function App' },
+                    { name: 'Container Instance', shortName: 'ci', scope: 'resource-group', minLength: 1, maxLength: 63, validCharacters: 'alphanumeric, hyphens', caseSensitive: false, examples: ['ci-api-prod-eastus-001'], description: 'Azure Container Instance' },
+                    { name: 'Kubernetes Service', shortName: 'aks', scope: 'resource-group', minLength: 1, maxLength: 63, validCharacters: 'alphanumeric, hyphens', caseSensitive: false, examples: ['aks-cluster-prod-eastus-001'], description: 'Azure Kubernetes Service' }
+                ],
+                'storage': [
+                    { name: 'Storage Account', shortName: 'st', scope: 'global', minLength: 3, maxLength: 24, validCharacters: 'lowercase letters, numbers', invalidCharacters: ['hyphens', 'underscores', 'uppercase'], caseSensitive: false, examples: ['stnavigatorprod001'], description: 'Azure Storage Account' },
+                    { name: 'Container Registry', shortName: 'cr', scope: 'global', minLength: 5, maxLength: 50, validCharacters: 'alphanumeric', caseSensitive: false, examples: ['crnavigatorprod001'], description: 'Azure Container Registry' },
+                    { name: 'Data Lake Storage', shortName: 'dls', scope: 'global', minLength: 3, maxLength: 24, validCharacters: 'lowercase letters, numbers', caseSensitive: false, examples: ['dlsnavigatorprod001'], description: 'Azure Data Lake Storage' }
+                ],
+                'databases': [
+                    { name: 'SQL Database', shortName: 'sqldb', scope: 'resource-group', minLength: 1, maxLength: 128, validCharacters: 'alphanumeric, hyphens, underscores', caseSensitive: false, examples: ['sqldb-users-prod'], description: 'Azure SQL Database' },
+                    { name: 'Cosmos DB', shortName: 'cosmos', scope: 'global', minLength: 1, maxLength: 63, validCharacters: 'lowercase letters, numbers, hyphens', caseSensitive: false, examples: ['cosmos-navigator-prod'], description: 'Azure Cosmos DB' },
+                    { name: 'Redis Cache', shortName: 'redis', scope: 'global', minLength: 1, maxLength: 63, validCharacters: 'alphanumeric, hyphens', caseSensitive: false, examples: ['redis-cache-prod-001'], description: 'Azure Cache for Redis' }
+                ],
+                'networking': [
+                    { name: 'Virtual Network', shortName: 'vnet', scope: 'resource-group', minLength: 2, maxLength: 64, validCharacters: 'alphanumeric, hyphens, underscores, periods', caseSensitive: false, examples: ['vnet-shared-eastus-001'], description: 'Azure Virtual Network' },
+                    { name: 'Subnet', shortName: 'snet', scope: 'virtual-network', minLength: 1, maxLength: 80, validCharacters: 'alphanumeric, hyphens, underscores, periods', caseSensitive: false, examples: ['snet-web-prod-eastus-001'], description: 'Azure Virtual Network Subnet' },
+                    { name: 'Network Security Group', shortName: 'nsg', scope: 'resource-group', minLength: 1, maxLength: 80, validCharacters: 'alphanumeric, hyphens, underscores, periods', caseSensitive: false, examples: ['nsg-web-prod-eastus-001'], description: 'Azure Network Security Group' },
+                    { name: 'Public IP', shortName: 'pip', scope: 'resource-group', minLength: 1, maxLength: 80, validCharacters: 'alphanumeric, hyphens, underscores, periods', caseSensitive: false, examples: ['pip-vm-prod-eastus-001'], description: 'Azure Public IP Address' },
+                    { name: 'Load Balancer', shortName: 'lb', scope: 'resource-group', minLength: 1, maxLength: 80, validCharacters: 'alphanumeric, hyphens, underscores, periods', caseSensitive: false, examples: ['lb-web-prod-eastus-001'], description: 'Azure Load Balancer' },
+                    { name: 'Application Gateway', shortName: 'agw', scope: 'resource-group', minLength: 1, maxLength: 80, validCharacters: 'alphanumeric, hyphens, underscores, periods', caseSensitive: false, examples: ['agw-web-prod-eastus-001'], description: 'Azure Application Gateway' }
+                ],
+                'analytics': [
+                    { name: 'Data Factory', shortName: 'adf', scope: 'global', minLength: 3, maxLength: 63, validCharacters: 'alphanumeric, hyphens', caseSensitive: false, examples: ['adf-data-prod-001'], description: 'Azure Data Factory' },
+                    { name: 'IoT Hub', shortName: 'iot', scope: 'global', minLength: 3, maxLength: 50, validCharacters: 'alphanumeric, hyphens', caseSensitive: false, examples: ['iot-sensors-prod-001'], description: 'Azure IoT Hub' },
+                    { name: 'Event Hub', shortName: 'evh', scope: 'namespace', minLength: 1, maxLength: 50, validCharacters: 'alphanumeric, hyphens, periods', caseSensitive: false, examples: ['evh-telemetry-prod-001'], description: 'Azure Event Hub' }
+                ],
+                'ai': [
+                    { name: 'AI Search', shortName: 'srch', scope: 'global', minLength: 2, maxLength: 60, validCharacters: 'lowercase letters, numbers, hyphens', caseSensitive: false, examples: ['srch-content-prod-001'], description: 'Azure AI Search' },
+                    { name: 'OpenAI Service', shortName: 'oai', scope: 'resource-group', minLength: 2, maxLength: 64, validCharacters: 'alphanumeric, hyphens', caseSensitive: false, examples: ['oai-chatbot-prod-001'], description: 'Azure OpenAI Service' },
+                    { name: 'Machine Learning Workspace', shortName: 'mlw', scope: 'resource-group', minLength: 3, maxLength: 33, validCharacters: 'alphanumeric, hyphens', caseSensitive: false, examples: ['mlw-models-prod-001'], description: 'Azure Machine Learning Workspace' }
+                ],
+                'security': [
+                    { name: 'Key Vault', shortName: 'kv', scope: 'global', minLength: 3, maxLength: 24, validCharacters: 'alphanumeric, hyphens', caseSensitive: false, examples: ['kv-secrets-prod-001'], description: 'Azure Key Vault' },
+                    { name: 'Managed Identity', shortName: 'id', scope: 'resource-group', minLength: 3, maxLength: 128, validCharacters: 'alphanumeric, hyphens, underscores', caseSensitive: false, examples: ['id-webapp-prod-001'], description: 'Azure Managed Identity' }
+                ],
+                'integration': [
+                    { name: 'API Management', shortName: 'apim', scope: 'global', minLength: 1, maxLength: 50, validCharacters: 'alphanumeric, hyphens', caseSensitive: false, examples: ['apim-gateway-prod-001'], description: 'Azure API Management' },
+                    { name: 'Service Bus', shortName: 'sb', scope: 'global', minLength: 6, maxLength: 50, validCharacters: 'alphanumeric, hyphens', caseSensitive: false, examples: ['sb-messaging-prod-001'], description: 'Azure Service Bus' },
+                    { name: 'Logic App', shortName: 'logic', scope: 'resource-group', minLength: 1, maxLength: 80, validCharacters: 'alphanumeric, hyphens, underscores, periods', caseSensitive: false, examples: ['logic-workflow-prod-001'], description: 'Azure Logic App' }
+                ],
+                'management': [
+                    { name: 'Resource Group', shortName: 'rg', scope: 'subscription', minLength: 1, maxLength: 90, validCharacters: 'alphanumeric, hyphens, underscores, periods, parentheses', caseSensitive: false, examples: ['rg-webapp-prod-eastus-001'], description: 'Azure Resource Group' },
+                    { name: 'Management Group', shortName: 'mg', scope: 'tenant', minLength: 1, maxLength: 90, validCharacters: 'alphanumeric, hyphens, underscores, periods, parentheses', caseSensitive: false, examples: ['mg-production'], description: 'Azure Management Group' }
+                ]
+            },
+            'aws': {
+                'compute': [
+                    { name: 'EC2 Instance', shortName: 'ec2', scope: 'region', minLength: 1, maxLength: 255, validCharacters: 'alphanumeric, hyphens, spaces, periods, underscores', caseSensitive: false, examples: ['myapp-prod-web-01', 'myapp-dev-worker-02'], description: 'Amazon EC2 Instance' },
+                    { name: 'Lambda Function', shortName: 'lambda', scope: 'region', minLength: 1, maxLength: 64, validCharacters: 'alphanumeric, hyphens, underscores', caseSensitive: true, examples: ['myapp-prod-process-upload', 'myapp-dev-data-processor'], description: 'AWS Lambda Function' },
+                    { name: 'ECS Cluster', shortName: 'ecs', scope: 'region', minLength: 1, maxLength: 255, validCharacters: 'alphanumeric, hyphens, underscores', caseSensitive: false, examples: ['myapp-prod-cluster', 'myapp-stage-cluster'], description: 'Amazon ECS Cluster' },
+                    { name: 'EKS Cluster', shortName: 'eks', scope: 'region', minLength: 1, maxLength: 100, validCharacters: 'alphanumeric, hyphens', caseSensitive: false, examples: ['myapp-prod-k8s', 'myapp-dev-k8s'], description: 'Amazon EKS Cluster' },
+                    { name: 'Auto Scaling Group', shortName: 'asg', scope: 'region', minLength: 1, maxLength: 255, validCharacters: 'alphanumeric, hyphens, periods, underscores', caseSensitive: false, examples: ['myapp-prod-web-asg', 'myapp-stage-app-asg'], description: 'EC2 Auto Scaling Group' },
+                    { name: 'Launch Configuration', shortName: 'lc', scope: 'region', minLength: 1, maxLength: 255, validCharacters: 'alphanumeric, hyphens, periods, underscores', caseSensitive: false, examples: ['myapp-prod-web-20241201-lc'], description: 'EC2 Launch Configuration' }
+                ],
+                'storage': [
+                    { name: 'S3 Bucket', shortName: 's3', scope: 'global', minLength: 3, maxLength: 63, validCharacters: 'lowercase letters, numbers, hyphens, periods', caseSensitive: false, examples: ['myapp-prod-logs-backup', 'myapp-dev-assets'], description: 'Amazon S3 Bucket' },
+                    { name: 'EBS Volume', shortName: 'ebs', scope: 'region', minLength: 1, maxLength: 255, validCharacters: 'alphanumeric, hyphens, spaces, periods, underscores', caseSensitive: false, examples: ['myapp-prod-data-vol-01'], description: 'Amazon EBS Volume' },
+                    { name: 'EFS File System', shortName: 'efs', scope: 'region', minLength: 1, maxLength: 256, validCharacters: 'alphanumeric, hyphens, periods, underscores', caseSensitive: false, examples: ['myapp-prod-shared-efs'], description: 'Amazon EFS File System' }
+                ],
+                'databases': [
+                    { name: 'RDS Instance', shortName: 'rds', scope: 'region', minLength: 1, maxLength: 63, validCharacters: 'alphanumeric, hyphens', caseSensitive: false, examples: ['myapp-prod-mysql-db01', 'myapp-stage-postgres-db01'], description: 'Amazon RDS Database Instance' },
+                    { name: 'DynamoDB Table', shortName: 'ddb', scope: 'region', minLength: 3, maxLength: 255, validCharacters: 'alphanumeric, hyphens, underscores, periods', caseSensitive: false, examples: ['myapp-prod-users-table', 'myapp-dev-sessions-table'], description: 'Amazon DynamoDB Table' },
+                    { name: 'ElastiCache Cluster', shortName: 'redis', scope: 'region', minLength: 1, maxLength: 50, validCharacters: 'alphanumeric, hyphens', caseSensitive: false, examples: ['myapp-prod-redis-cluster', 'myapp-stage-memcached'], description: 'Amazon ElastiCache Cluster' },
+                    { name: 'RDS Subnet Group', shortName: 'rds-subnet', scope: 'region', minLength: 1, maxLength: 255, validCharacters: 'alphanumeric, hyphens, periods, underscores', caseSensitive: false, examples: ['myapp-prod-mysql-subnetgroup'], description: 'RDS DB Subnet Group' }
+                ],
+                'networking': [
+                    { name: 'VPC', shortName: 'vpc', scope: 'region', minLength: 1, maxLength: 255, validCharacters: 'alphanumeric, hyphens, spaces, periods, underscores', caseSensitive: false, examples: ['myapp-prod-vpc', 'myapp-dev-vpc'], description: 'Amazon Virtual Private Cloud' },
+                    { name: 'Subnet', shortName: 'subnet', scope: 'vpc', minLength: 1, maxLength: 255, validCharacters: 'alphanumeric, hyphens, spaces, periods, underscores', caseSensitive: false, examples: ['myapp-prod-web-private-1a', 'myapp-prod-db-private-1b'], description: 'VPC Subnet' },
+                    { name: 'Security Group', shortName: 'sg', scope: 'vpc', minLength: 1, maxLength: 255, validCharacters: 'alphanumeric, hyphens, spaces, periods, underscores', caseSensitive: false, examples: ['myapp-prod-web-sg', 'myapp-prod-db-sg'], description: 'VPC Security Group' },
+                    { name: 'Elastic Load Balancer', shortName: 'elb', scope: 'region', minLength: 1, maxLength: 32, validCharacters: 'alphanumeric, hyphens', caseSensitive: false, examples: ['myapp-prod-web-elb', 'myapp-stage-api-elb'], description: 'Elastic Load Balancer' },
+                    { name: 'Internet Gateway', shortName: 'igw', scope: 'region', minLength: 1, maxLength: 255, validCharacters: 'alphanumeric, hyphens, spaces, periods, underscores', caseSensitive: false, examples: ['myapp-prod-igw'], description: 'VPC Internet Gateway' },
+                    { name: 'Route Table', shortName: 'rt', scope: 'region', minLength: 1, maxLength: 255, validCharacters: 'alphanumeric, hyphens, spaces, periods, underscores', caseSensitive: false, examples: ['myapp-prod-public-rt', 'myapp-prod-private-rt-1a'], description: 'VPC Route Table' },
+                    { name: 'NAT Gateway', shortName: 'nat', scope: 'region', minLength: 1, maxLength: 255, validCharacters: 'alphanumeric, hyphens, spaces, periods, underscores', caseSensitive: false, examples: ['myapp-prod-nat-1a'], description: 'VPC NAT Gateway' }
+                ],
+                'analytics': [
+                    { name: 'Kinesis Stream', shortName: 'kinesis', scope: 'region', minLength: 1, maxLength: 128, validCharacters: 'alphanumeric, hyphens, underscores, periods', caseSensitive: false, examples: ['myapp-prod-events-stream'], description: 'Amazon Kinesis Data Stream' },
+                    { name: 'Redshift Cluster', shortName: 'redshift', scope: 'region', minLength: 1, maxLength: 63, validCharacters: 'lowercase letters, numbers, hyphens', caseSensitive: false, examples: ['myapp-prod-datawarehouse'], description: 'Amazon Redshift Cluster' },
+                    { name: 'CloudWatch Log Group', shortName: 'log', scope: 'region', minLength: 1, maxLength: 512, validCharacters: 'alphanumeric, hyphens, underscores, periods, forward slashes', caseSensitive: false, examples: ['myapp-prod-app-logs', '/aws/lambda/myapp-prod-processor'], description: 'CloudWatch Log Group' }
+                ],
+                'ai': [
+                    { name: 'SageMaker Endpoint', shortName: 'sagemaker', scope: 'region', minLength: 1, maxLength: 63, validCharacters: 'alphanumeric, hyphens', caseSensitive: false, examples: ['myapp-prod-ml-endpoint'], description: 'Amazon SageMaker Endpoint' }
+                ],
+                'security': [
+                    { name: 'IAM Role', shortName: 'role', scope: 'global', minLength: 1, maxLength: 64, validCharacters: 'alphanumeric, plus, equals, comma, period, at, hyphens', caseSensitive: false, examples: ['myapp-prod-ec2-role', 'myapp-dev-lambda-execution-role'], description: 'AWS IAM Role' },
+                    { name: 'IAM Policy', shortName: 'policy', scope: 'global', minLength: 1, maxLength: 128, validCharacters: 'alphanumeric, plus, equals, comma, period, at, hyphens', caseSensitive: false, examples: ['myapp-prod-s3-readwrite-policy'], description: 'AWS IAM Policy' },
+                    { name: 'KMS Key', shortName: 'kms', scope: 'region', minLength: 1, maxLength: 256, validCharacters: 'alphanumeric, hyphens, underscores, periods, forward slashes', caseSensitive: false, examples: ['myapp-prod-ebs-kms', 'myapp-prod-rds-kms'], description: 'AWS KMS Key' }
+                ],
+                'integration': [
+                    { name: 'API Gateway', shortName: 'api', scope: 'region', minLength: 1, maxLength: 1024, validCharacters: 'alphanumeric, hyphens, periods, underscores', caseSensitive: false, examples: ['myapp-prod-api-gateway'], description: 'Amazon API Gateway' },
+                    { name: 'SQS Queue', shortName: 'sqs', scope: 'region', minLength: 1, maxLength: 80, validCharacters: 'alphanumeric, hyphens, underscores', caseSensitive: false, examples: ['myapp-prod-orders-queue'], description: 'Amazon SQS Queue' },
+                    { name: 'SNS Topic', shortName: 'sns', scope: 'region', minLength: 1, maxLength: 256, validCharacters: 'alphanumeric, hyphens, underscores', caseSensitive: false, examples: ['myapp-prod-notifications-topic'], description: 'Amazon SNS Topic' }
+                ],
+                'management': [
+                    { name: 'CloudFormation Stack', shortName: 'cf', scope: 'region', minLength: 1, maxLength: 128, validCharacters: 'alphanumeric, hyphens', caseSensitive: false, examples: ['myapp-prod-infrastructure-cf', 'myapp-prod-vpc-cf'], description: 'AWS CloudFormation Stack' }
+                ]
+            },
+            'gcp': {
+                'compute': [
+                    { name: 'Compute Engine Instance', shortName: 'vm', scope: 'zone', minLength: 1, maxLength: 63, validCharacters: 'lowercase letters, numbers, hyphens', caseSensitive: false, examples: ['vm-web-prod-us-central1-a-001', 'vm-api-staging-europe-west1-b-002'], description: 'Google Compute Engine Instance' },
+                    { name: 'Instance Template', shortName: 'template', scope: 'global', minLength: 1, maxLength: 63, validCharacters: 'lowercase letters, numbers, hyphens', caseSensitive: false, examples: ['template-web-prod-001'], description: 'Compute Engine Instance Template' },
+                    { name: 'Instance Group', shortName: 'ig', scope: 'zone', minLength: 1, maxLength: 63, validCharacters: 'lowercase letters, numbers, hyphens', caseSensitive: false, examples: ['ig-web-prod-us-central1-a-001'], description: 'Compute Engine Instance Group' },
+                    { name: 'Cloud Function', shortName: 'func', scope: 'region', minLength: 1, maxLength: 63, validCharacters: 'lowercase letters, numbers, hyphens', caseSensitive: false, examples: ['func-processor-prod-us-central1-001', 'func-webhook-staging-europe-west1-001'], description: 'Google Cloud Function' },
+                    { name: 'GKE Cluster', shortName: 'gke', scope: 'zone', minLength: 1, maxLength: 40, validCharacters: 'lowercase letters, numbers, hyphens', caseSensitive: false, examples: ['gke-cluster-prod-us-central1-a-001', 'gke-cluster-dev-europe-west1-b-001'], description: 'Google Kubernetes Engine Cluster' },
+                    { name: 'GKE Node Pool', shortName: 'nodepool', scope: 'zone', minLength: 1, maxLength: 40, validCharacters: 'lowercase letters, numbers, hyphens', caseSensitive: false, examples: ['nodepool-workers-prod-001'], description: 'GKE Node Pool' },
+                    { name: 'Cloud Run Service', shortName: 'run', scope: 'region', minLength: 1, maxLength: 49, validCharacters: 'lowercase letters, numbers, hyphens', caseSensitive: false, examples: ['run-api-prod-us-central1-001', 'run-frontend-staging-europe-west1-001'], description: 'Google Cloud Run Service' },
+                    { name: 'App Engine Service', shortName: 'appengine', scope: 'global', minLength: 1, maxLength: 63, validCharacters: 'lowercase letters, numbers, hyphens', caseSensitive: false, examples: ['appengine-main-prod-001'], description: 'Google App Engine Service' }
+                ],
+                'storage': [
+                    { name: 'Cloud Storage Bucket', shortName: 'gcs', scope: 'global', minLength: 3, maxLength: 63, validCharacters: 'lowercase letters, numbers, hyphens, underscores, periods', caseSensitive: false, examples: ['gcs-company-data-prod-001', 'gcs-acme-backups-staging-002'], description: 'Google Cloud Storage Bucket' },
+                    { name: 'Persistent Disk', shortName: 'disk', scope: 'zone', minLength: 1, maxLength: 63, validCharacters: 'lowercase letters, numbers, hyphens', caseSensitive: false, examples: ['disk-data-prod-us-central1-a-001', 'disk-logs-staging-europe-west1-b-001'], description: 'Google Persistent Disk' },
+                    { name: 'Filestore Instance', shortName: 'filestore', scope: 'zone', minLength: 1, maxLength: 63, validCharacters: 'lowercase letters, numbers, hyphens', caseSensitive: false, examples: ['filestore-shared-prod-us-central1-a-001'], description: 'Google Cloud Filestore' }
+                ],
+                'databases': [
+                    { name: 'Cloud SQL Instance', shortName: 'sql', scope: 'project', minLength: 1, maxLength: 98, validCharacters: 'lowercase letters, numbers, hyphens', caseSensitive: false, examples: ['sql-users-prod-us-central1-001', 'sql-analytics-staging-europe-west1-001'], description: 'Google Cloud SQL Instance' },
+                    { name: 'Cloud Spanner Instance', shortName: 'spanner', scope: 'regional', minLength: 1, maxLength: 30, validCharacters: 'lowercase letters, numbers, hyphens', caseSensitive: false, examples: ['spanner-main-prod-us-central1-001'], description: 'Google Cloud Spanner Instance' },
+                    { name: 'Firestore Database', shortName: 'firestore', scope: 'project', minLength: 1, maxLength: 100, validCharacters: 'alphanumeric, hyphens, underscores', caseSensitive: false, examples: ['firestore-main-prod-001', 'firestore-sessions-staging-001'], description: 'Google Firestore Database' },
+                    { name: 'BigQuery Dataset', shortName: 'bq', scope: 'project', minLength: 1, maxLength: 1024, validCharacters: 'alphanumeric, underscores', caseSensitive: false, examples: ['bq_analytics_prod_001', 'bq_warehouse_staging_001'], description: 'Google BigQuery Dataset' },
+                    { name: 'BigQuery Table', shortName: 'bqtable', scope: 'dataset', minLength: 1, maxLength: 1024, validCharacters: 'alphanumeric, underscores', caseSensitive: false, examples: ['bqtable_events_prod_001'], description: 'BigQuery Table' },
+                    { name: 'Bigtable Instance', shortName: 'bigtable', scope: 'project', minLength: 6, maxLength: 33, validCharacters: 'lowercase letters, numbers, hyphens', caseSensitive: false, examples: ['bigtable-timeseries-prod-001'], description: 'Google Cloud Bigtable Instance' },
+                    { name: 'Memorystore Redis', shortName: 'redis', scope: 'region', minLength: 1, maxLength: 40, validCharacters: 'lowercase letters, numbers, hyphens', caseSensitive: false, examples: ['redis-cache-prod-us-central1-001'], description: 'Google Memorystore Redis Instance' }
+                ],
+                'networking': [
+                    { name: 'VPC Network', shortName: 'vpc', scope: 'global', minLength: 1, maxLength: 63, validCharacters: 'lowercase letters, numbers, hyphens', caseSensitive: false, examples: ['vpc-main-prod-001', 'vpc-backend-staging-001'], description: 'Google VPC Network' },
+                    { name: 'Subnet', shortName: 'subnet', scope: 'region', minLength: 1, maxLength: 63, validCharacters: 'lowercase letters, numbers, hyphens', caseSensitive: false, examples: ['subnet-web-prod-us-central1-001', 'subnet-db-staging-europe-west1-001'], description: 'VPC Subnet' },
+                    { name: 'Firewall Rule', shortName: 'fw', scope: 'global', minLength: 1, maxLength: 63, validCharacters: 'lowercase letters, numbers, hyphens', caseSensitive: false, examples: ['fw-allow-http-prod-001', 'fw-allow-ssh-dev-001'], description: 'VPC Firewall Rule' },
+                    { name: 'Load Balancer', shortName: 'lb', scope: 'global', minLength: 1, maxLength: 63, validCharacters: 'lowercase letters, numbers, hyphens', caseSensitive: false, examples: ['lb-web-prod-001', 'lb-api-staging-001'], description: 'Google Cloud Load Balancer' },
+                    { name: 'Target Pool', shortName: 'pool', scope: 'region', minLength: 1, maxLength: 63, validCharacters: 'lowercase letters, numbers, hyphens', caseSensitive: false, examples: ['pool-web-prod-us-central1-001'], description: 'Load Balancer Target Pool' },
+                    { name: 'Router', shortName: 'router', scope: 'region', minLength: 1, maxLength: 63, validCharacters: 'lowercase letters, numbers, hyphens', caseSensitive: false, examples: ['router-nat-prod-us-central1-001'], description: 'Google Cloud Router' },
+                    { name: 'NAT Gateway', shortName: 'nat', scope: 'region', minLength: 1, maxLength: 63, validCharacters: 'lowercase letters, numbers, hyphens', caseSensitive: false, examples: ['nat-egress-prod-us-central1-001'], description: 'Cloud NAT Gateway' }
+                ],
+                'analytics': [
+                    { name: 'Pub/Sub Topic', shortName: 'pubsub', scope: 'project', minLength: 3, maxLength: 255, validCharacters: 'letters, numbers, hyphens, periods, underscores, tildes, plus, percent', caseSensitive: false, examples: ['pubsub-events-prod-001', 'pubsub-notifications-staging-001'], description: 'Google Pub/Sub Topic' },
+                    { name: 'Pub/Sub Subscription', shortName: 'sub', scope: 'project', minLength: 3, maxLength: 255, validCharacters: 'letters, numbers, hyphens, periods, underscores, tildes, plus, percent', caseSensitive: false, examples: ['sub-processor-prod-001'], description: 'Pub/Sub Subscription' },
+                    { name: 'Dataflow Job', shortName: 'dataflow', scope: 'region', minLength: 1, maxLength: 40, validCharacters: 'lowercase letters, numbers, hyphens', caseSensitive: false, examples: ['dataflow-etl-prod-us-central1-001', 'dataflow-transform-staging-europe-west1-001'], description: 'Google Dataflow Job' },
+                    { name: 'Dataproc Cluster', shortName: 'dataproc', scope: 'region', minLength: 1, maxLength: 54, validCharacters: 'lowercase letters, numbers, hyphens', caseSensitive: false, examples: ['dataproc-spark-prod-us-central1-001'], description: 'Google Dataproc Cluster' },
+                    { name: 'Data Fusion Instance', shortName: 'datafusion', scope: 'region', minLength: 1, maxLength: 63, validCharacters: 'lowercase letters, numbers, hyphens', caseSensitive: false, examples: ['datafusion-etl-prod-us-central1-001'], description: 'Google Data Fusion Instance' }
+                ],
+                'ai': [
+                    { name: 'AI Platform Model', shortName: 'aimodel', scope: 'project', minLength: 1, maxLength: 128, validCharacters: 'alphanumeric, hyphens, underscores', caseSensitive: false, examples: ['aimodel-prediction-prod-001', 'aimodel-classification-staging-001'], description: 'Google AI Platform Model' },
+                    { name: 'AutoML Dataset', shortName: 'automl', scope: 'project', minLength: 1, maxLength: 32, validCharacters: 'lowercase letters, numbers, hyphens', caseSensitive: false, examples: ['automl-images-prod-001'], description: 'Google AutoML Dataset' },
+                    { name: 'Notebook Instance', shortName: 'notebook', scope: 'zone', minLength: 1, maxLength: 63, validCharacters: 'lowercase letters, numbers, hyphens', caseSensitive: false, examples: ['notebook-research-prod-us-central1-a-001'], description: 'AI Platform Notebook Instance' }
+                ],
+                'security': [
+                    { name: 'Service Account', shortName: 'sa', scope: 'project', minLength: 6, maxLength: 30, validCharacters: 'lowercase letters, numbers, hyphens', caseSensitive: false, examples: ['sa-compute-prod-001', 'sa-storage-staging-001'], description: 'Google Service Account' },
+                    { name: 'KMS Key Ring', shortName: 'keyring', scope: 'location', minLength: 1, maxLength: 63, validCharacters: 'alphanumeric, hyphens, underscores', caseSensitive: false, examples: ['keyring-encryption-prod-us-central1-001'], description: 'Google Cloud KMS Key Ring' },
+                    { name: 'KMS Key', shortName: 'kms', scope: 'location', minLength: 1, maxLength: 63, validCharacters: 'alphanumeric, hyphens, underscores', caseSensitive: false, examples: ['kms-database-prod-us-central1-001', 'kms-storage-staging-europe-west1-001'], description: 'Google Cloud KMS Key' },
+                    { name: 'Secret Manager Secret', shortName: 'secret', scope: 'project', minLength: 1, maxLength: 255, validCharacters: 'alphanumeric, hyphens, underscores', caseSensitive: false, examples: ['secret-db-password-prod-001'], description: 'Google Secret Manager Secret' }
+                ],
+                'integration': [
+                    { name: 'API Gateway', shortName: 'apigw', scope: 'global', minLength: 1, maxLength: 63, validCharacters: 'lowercase letters, numbers, hyphens', caseSensitive: false, examples: ['apigw-main-prod-001'], description: 'Google API Gateway' },
+                    { name: 'Endpoints Service', shortName: 'endpoints', scope: 'global', minLength: 1, maxLength: 63, validCharacters: 'lowercase letters, numbers, hyphens, periods', caseSensitive: false, examples: ['endpoints-api-prod-001'], description: 'Google Cloud Endpoints' }
+                ],
+                'management': [
+                    { name: 'Deployment Manager', shortName: 'dm', scope: 'project', minLength: 1, maxLength: 63, validCharacters: 'lowercase letters, numbers, hyphens', caseSensitive: false, examples: ['dm-infrastructure-prod-001', 'dm-network-staging-001'], description: 'Google Deployment Manager' },
+                    { name: 'Monitoring Workspace', shortName: 'monitoring', scope: 'project', minLength: 1, maxLength: 63, validCharacters: 'alphanumeric, hyphens, underscores', caseSensitive: false, examples: ['monitoring-main-prod-001'], description: 'Google Cloud Monitoring Workspace' },
+                    { name: 'Logging Sink', shortName: 'logsink', scope: 'project', minLength: 1, maxLength: 100, validCharacters: 'alphanumeric, hyphens, underscores, periods', caseSensitive: false, examples: ['logsink-audit-prod-001'], description: 'Google Cloud Logging Sink' }
+                ]
+            }
+        };
+
+        // Current provider and resource type tracking
+        let currentProvider = 'azure';
+        let currentResourceType = null;
+
+        function populateCategories() {
+            const categorySelect = document.getElementById('category');
+            categorySelect.innerHTML = '<option value="">Select Category</option>';
+            
+            const providerData = CLOUD_RESOURCE_TYPES[currentProvider];
+            if (providerData) {
+                Object.keys(providerData).forEach(category => {
+                    const option = document.createElement('option');
+                    option.value = category;
+                    option.textContent = category;
+                    categorySelect.appendChild(option);
+                });
+            }
+        }
+
+        function switchProvider(provider) {
+            // Update current provider
+            currentProvider = provider;
+            
+            // Update provider button states and remove green indicators
+            document.querySelectorAll('.provider-btn').forEach(btn => {
+                btn.classList.remove('active');
+                btn.classList.remove('bg-gradient-to-r', 'from-blue-500', 'to-blue-600', 'text-white', 'border-blue-500');
+                btn.classList.remove('bg-gradient-to-r', 'from-orange-500', 'to-orange-600', 'text-white', 'border-orange-500');
+                btn.classList.remove('bg-gradient-to-r', 'from-blue-500', 'to-blue-600', 'text-white', 'border-blue-500');
+                btn.classList.add('bg-white', 'text-gray-700', 'border-gray-200');
+                
+                // Remove any existing green indicators
+                const indicator = btn.querySelector('.bg-green-400');
+                if (indicator) {
+                    indicator.parentElement.remove();
+                }
+            });
+            
+            // Activate selected provider
+            const selectedBtn = document.getElementById(provider + 'Provider');
+            selectedBtn.classList.add('active');
+            selectedBtn.classList.remove('bg-white', 'text-gray-700', 'border-gray-200');
+            
+            // Add green indicator to selected provider
+            const indicatorDiv = document.createElement('div');
+            indicatorDiv.className = 'absolute top-2 right-2';
+            indicatorDiv.innerHTML = '<div class="w-3 h-3 bg-green-400 rounded-full shadow-lg"></div>';
+            selectedBtn.appendChild(indicatorDiv);
+            
+            if (provider === 'azure') {
+                selectedBtn.classList.add('bg-gradient-to-r', 'from-blue-500', 'to-blue-600', 'text-white', 'border-blue-500');
+            } else if (provider === 'aws') {
+                selectedBtn.classList.add('bg-gradient-to-r', 'from-orange-500', 'to-orange-600', 'text-white', 'border-orange-500');
+            } else if (provider === 'gcp') {
+                selectedBtn.classList.add('bg-gradient-to-r', 'from-blue-500', 'to-blue-600', 'text-white', 'border-blue-500');
+            }
+            
+            // Update provider info
+            updateProviderInfo(provider);
+            
+            // Update best practices section
+            updateBestPracticesSection(provider);
+            
+            // Update Terraform options for the new provider
+            updateTerraformOptions(provider);
+            
+            // Repopulate categories for the new provider
+            populateCategories();
+            
+            // Reset category and resource type selections
+            document.getElementById('category').value = '';
+            document.getElementById('resourceType').innerHTML = '<option value="">Select Resource Type</option>';
+            document.getElementById('resourceType').disabled = true;
+            document.getElementById('resourceInfo').classList.add('hidden');
+            
+            // Clear current resource type
+            currentResourceType = null;
+            updateFormState();
+        }
+
+        function updateProviderInfo(provider) {
+            const providerDescriptions = {
+                azure: {
+                    title: 'Microsoft Azure Selected',
+                    description: 'Generate Azure resource names following Microsoft\'s Cloud Adoption Framework best practices.',
+                    class: 'blue'
+                },
+                aws: {
+                    title: 'Amazon AWS Selected', 
+                    description: 'Generate AWS resource names following the {project}-{environment}-{service}-{identifier} format and AWS Well-Architected Framework best practices.',
+                    class: 'orange'
+                },
+                gcp: {
+                    title: 'Google Cloud Selected',
+                    description: 'Generate GCP resource names following Google\'s Cloud Architecture best practices.',
+                    class: 'blue'
+                }
+            };
+            
+            const info = providerDescriptions[provider];
+            const providerInfoDiv = document.getElementById('providerInfo');
+            const titleElement = providerInfoDiv.querySelector('h4');
+            const descElement = document.getElementById('providerDescription');
+            
+            titleElement.textContent = info.title;
+            descElement.textContent = info.description;
+            
+            // Update color scheme
+            providerInfoDiv.className = `mt-4 p-4 bg-${info.class}-50 border border-${info.class}-200 rounded-lg`;
+            titleElement.className = `font-medium text-${info.class}-900 mb-1`;
+            descElement.className = `text-sm text-${info.class}-800`;
+        }
+
+        function updateBestPracticesSection(provider) {
+            const bestPracticesTitle = document.getElementById('bestPracticesTitle');
+            const bestPracticesContent = document.getElementById('bestPracticesContent');
+            
+            const bestPractices = {
+                azure: {
+                    title: '📋 Microsoft Azure Best Practices',
+                    content: `
+                        <p><strong>Customizable Components (Text Input):</strong></p>
+                        <ul class="list-disc list-inside ml-4 space-y-1">
+                            <li><strong>Organization:</strong> Your company/organization identifier</li>
+                            <li><strong>Business Unit:</strong> Your department naming (e.g., fin, mktg, hr, product)</li>
+                            <li><strong>Workload/Application:</strong> Your project or application name</li>
+                            <li><strong>Instance:</strong> Your numbering scheme (001, 01, etc.)</li>
+                        </ul>
+                        <p class="mt-3"><strong>Standardized Components (Dropdown):</strong></p>
+                        <ul class="list-disc list-inside ml-4 space-y-1">
+                            <li><strong>Resource Type:</strong> Official Azure service abbreviations</li>
+                            <li><strong>Environment:</strong> Standard deployment stages (prod, dev, test, stage)</li>
+                            <li><strong>Region:</strong> Official Azure region codes</li>
+                        </ul>
+                    `,
+                    colorClass: 'text-blue-800 dark:text-white'
+                },
+                aws: {
+                    title: '📋 Amazon AWS Best Practices',
+                    content: `
+                        <p><strong>AWS Naming Pattern: {project}-{environment}-{service}-{identifier}</strong></p>
+                        <p class="mt-2"><strong>Customizable Components (Text Input):</strong></p>
+                        <ul class="list-disc list-inside ml-4 space-y-1">
+                            <li><strong>Organization:</strong> Your company/account identifier</li>
+                            <li><strong>Business Unit:</strong> Your team/department (e.g., web, data, infra)</li>
+                            <li><strong>Workload/Application:</strong> Your application/project name</li>
+                            <li><strong>Instance:</strong> Your numbering scheme (01, 02, etc.)</li>
+                        </ul>
+                        <p class="mt-3"><strong>Standardized Components (Dropdown):</strong></p>
+                        <ul class="list-disc list-inside ml-4 space-y-1">
+                            <li><strong>Resource Type:</strong> AWS service prefixes (ec2, s3, rds, lambda)</li>
+                            <li><strong>Environment:</strong> Deployment stages (prod, stage, test, dev)</li>
+                            <li><strong>Region:</strong> AWS region codes (us-east-1, eu-west-1)</li>
+                        </ul>
+                    `,
+                    colorClass: 'text-orange-800 dark:text-white'
+                },
+                gcp: {
+                    title: '📋 Google Cloud Platform Best Practices',
+                    content: `
+                        <p><strong>GCP Naming Pattern: {org}-{environment}-{service}-{region}-{instance}</strong></p>
+                        <p class="mt-2"><strong>Google Cloud Naming Conventions:</strong></p>
+                        <ul class="list-disc list-inside ml-4 space-y-1">
+                            <li><strong>Use kebab-case:</strong> All lowercase with hyphens (no underscores or camelCase)</li>
+                            <li><strong>Length limits:</strong> 3-63 characters (varies by resource type)</li>
+                            <li><strong>Global uniqueness:</strong> Some resources require globally unique names</li>
+                            <li><strong>Project structure:</strong> Organize resources by projects for billing and access control</li>
+                        </ul>
+                        <p class="mt-3"><strong>Customizable Components (Text Input):</strong></p>
+                        <ul class="list-disc list-inside ml-4 space-y-1">
+                            <li><strong>Organization:</strong> Company/team identifier (e.g., acme, finance, eng)</li>
+                            <li><strong>Business Unit:</strong> Department/workload (e.g., web, analytics, ml, backend)</li>
+                            <li><strong>Workload/Application:</strong> Specific application name (e.g., webapp, api, etl)</li>
+                            <li><strong>Instance:</strong> Identifier/number (001, 002, a, b, main, secondary)</li>
+                        </ul>
+                        <p class="mt-3"><strong>Standardized Components (Dropdown):</strong></p>
+                        <ul class="list-disc list-inside ml-4 space-y-1">
+                            <li><strong>Resource Type:</strong> GCP service prefixes (vm, gke, sql, function, bucket)</li>
+                            <li><strong>Environment:</strong> Deployment stages (prod, staging, test, dev, sandbox)</li>
+                            <li><strong>Region:</strong> GCP regions (us-central1, europe-west1, asia-southeast1)</li>
+                        </ul>
+                        <p class="mt-3"><strong>Additional GCP Best Practices:</strong></p>
+                        <ul class="list-disc list-inside ml-4 space-y-1">
+                            <li><strong>Labels:</strong> Use labels for resource categorization, billing allocation, and automation</li>
+                            <li><strong>Hierarchy:</strong> Plan organization > folders > projects > resources structure</li>
+                            <li><strong>Documentation:</strong> Maintain naming convention documentation for your organization</li>
+                            <li><strong>Consistency:</strong> Apply same patterns across all GCP services and environments</li>
+                        </ul>
+                    `,
+                    colorClass: 'text-blue-800 dark:text-white'
+                }
+            };
+            
+            const practices = bestPractices[provider];
+            bestPracticesTitle.textContent = practices.title;
+            bestPracticesContent.innerHTML = practices.content;
+            bestPracticesContent.className = `text-sm ${practices.colorClass} space-y-2`;
+        }
+
+        function updateTerraformOptions(provider) {
+            const terraformProviderVersion = document.getElementById('terraformProviderVersion');
+            const containerResourceLabel = document.getElementById('containerResourceLabel');
+            const containerResourceSelect = document.getElementById('containerResource');
+
+            // Update provider version dropdown based on selected provider
+            const providerVersions = {
+                azure: [
+                    { value: '3.0', text: 'Azure Provider 3.0 (Latest)' },
+                    { value: '2.99', text: 'Azure Provider 2.99' },
+                    { value: '2.95', text: 'Azure Provider 2.95' }
+                ],
+                aws: [
+                    { value: '5.0', text: 'AWS Provider 5.0 (Latest)' },
+                    { value: '4.67', text: 'AWS Provider 4.67' },
+                    { value: '4.60', text: 'AWS Provider 4.60' }
+                ],
+                gcp: [
+                    { value: '4.84', text: 'Google Provider 4.84 (Latest)' },
+                    { value: '4.80', text: 'Google Provider 4.80' },
+                    { value: '4.75', text: 'Google Provider 4.75' }
+                ]
+            };
+
+            // Clear and populate provider version dropdown
+            terraformProviderVersion.innerHTML = '<option value="">Select Provider Version</option>';
+            providerVersions[provider].forEach(version => {
+                const option = document.createElement('option');
+                option.value = version.value;
+                option.textContent = version.text;
+                terraformProviderVersion.appendChild(option);
+            });
+
+            // Update container resource label and options
+            const containerLabels = {
+                azure: 'Resource Group',
+                aws: 'AWS Region',
+                gcp: 'GCP Project'
+            };
+
+            const containerOptions = {
+                azure: [
+                    { value: 'rg-production-001', text: 'rg-production-001' },
+                    { value: 'rg-staging-001', text: 'rg-staging-001' },
+                    { value: 'rg-development-001', text: 'rg-development-001' }
+                ],
+                aws: [
+                    { value: 'us-east-1', text: 'US East (N. Virginia)' },
+                    { value: 'us-west-2', text: 'US West (Oregon)' },
+                    { value: 'eu-west-1', text: 'Europe (Ireland)' }
+                ],
+                gcp: [
+                    { value: 'my-production-project', text: 'my-production-project' },
+                    { value: 'my-staging-project', text: 'my-staging-project' },
+                    { value: 'my-development-project', text: 'my-development-project' }
+                ]
+            };
+
+            containerResourceLabel.textContent = containerLabels[provider];
+            
+            // Clear and populate container resource dropdown
+            containerResourceSelect.innerHTML = `<option value="">Select ${containerLabels[provider]}</option>`;
+            containerOptions[provider].forEach(option => {
+                const optionElement = document.createElement('option');
+                optionElement.value = option.value;
+                optionElement.textContent = option.text;
+                containerResourceSelect.appendChild(optionElement);
+            });
+        }
+
+        function onCategoryChange() {
+            const categorySelect = document.getElementById('category');
+            const resourceTypeSelect = document.getElementById('resourceType');
+            const resourceInfo = document.getElementById('resourceInfo');
+            
+            const selectedCategory = categorySelect.value;
+            
+            // Clear resource type selection
+            resourceTypeSelect.innerHTML = '<option value="">Select Resource Type</option>';
+            resourceTypeSelect.disabled = !selectedCategory;
+            resourceInfo.classList.add('hidden');
+            currentResourceType = null;
+            
+            const providerData = CLOUD_RESOURCE_TYPES[currentProvider];
+            if (selectedCategory && providerData && providerData[selectedCategory]) {
+                resourceTypeSelect.disabled = false;
+                const resourceTypes = providerData[selectedCategory];
+                resourceTypes.forEach(resourceType => {
+                    const option = document.createElement('option');
+                    option.value = resourceType.name;
+                    option.textContent = `${resourceType.name} (${resourceType.shortName})`;
+                    resourceTypeSelect.appendChild(option);
+                });
+            }
+            
+            updateFormState();
+        }
+
+        function onResourceTypeChange() {
+            const categorySelect = document.getElementById('category');
+            const resourceTypeSelect = document.getElementById('resourceType');
+            const resourceInfo = document.getElementById('resourceInfo');
+            const resourceGuidelines = document.getElementById('resourceGuidelines');
+            
+            const selectedCategory = categorySelect.value;
+            const selectedResourceType = resourceTypeSelect.value;
+            
+            const providerData = CLOUD_RESOURCE_TYPES[currentProvider];
+            if (selectedCategory && selectedResourceType && providerData && providerData[selectedCategory]) {
+                const resourceTypes = providerData[selectedCategory];
+                currentResourceType = resourceTypes.find(type => type.name === selectedResourceType);
+                
+                if (currentResourceType) {
+                    // Show resource info
+                    resourceInfo.classList.remove('hidden');
+                    
+                    // Format scope based on provider
+                    const scopeMaps = {
+                        azure: {
+                            'global': 'Global (unique across all Azure)',
+                            'resource-group': 'Resource Group',
+                            'region': 'Region',
+                            'subscription': 'Subscription',
+                            'tenant': 'Tenant'
+                        },
+                        aws: {
+                            'global': 'Global (unique across all AWS)',
+                            'region': 'Region (unique within AWS region)',
+                            'vpc': 'VPC (unique within VPC)',
+                            'account': 'Account (unique within AWS account)'
+                        },
+                        gcp: {
+                            'global': 'Global (unique across all GCP)',
+                            'region': 'Region (unique within GCP region)',
+                            'zone': 'Zone (unique within GCP zone)',
+                            'project': 'Project (unique within GCP project)'
+                        }
+                    };
+                    
+                    const scopeMap = scopeMaps[currentProvider] || scopeMaps.azure;
+                    
+                    // Update guidelines
+                    resourceGuidelines.innerHTML = `
+                        <div class="space-y-2">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <span class="font-medium">Scope:</span> ${scopeMap[currentResourceType.scope] || currentResourceType.scope}
+                                </div>
+                                <div>
+                                    <span class="font-medium">Length:</span> ${currentResourceType.minLength}-${currentResourceType.maxLength} characters
+                                </div>
+                                <div>
+                                    <span class="font-medium">Valid characters:</span> ${currentResourceType.validCharacters}
+                                </div>
+                                <div>
+                                    <span class="font-medium">Case sensitive:</span> ${currentResourceType.caseSensitive ? 'Yes' : 'No'}
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <span class="font-medium">Examples:</span>
+                                <div class="mt-1 space-y-1">
+                                    ${currentResourceType.examples.map(example => 
+                                        `<code class="text-xs bg-azure-100 text-azure-800 px-2 py-1 rounded mr-2">${example}</code>`
+                                    ).join('')}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+            } else {
+                resourceInfo.classList.add('hidden');
+                currentResourceType = null;
+            }
+            
+            updateFormState();
+        }
+
+        function updateFormState() {
+            const generateBtn = document.getElementById('generateBtn');
+            const resultDiv = document.getElementById('result');
+            
+            // Check if required fields are filled
+            const organization = document.getElementById('organization').value.trim();
+            const workload = document.getElementById('workload').value.trim();
+            const environment = document.getElementById('environment').value;
+            const region = document.getElementById('region').value;
+            const instance = document.getElementById('instance').value.trim();
+            
+            const canGenerate = currentResourceType && organization && workload && environment && region && instance;
+            
+            generateBtn.disabled = !canGenerate;
+            
+            if (!canGenerate) {
+                resultDiv.classList.add('hidden');
+            }
+        }
+
+        function formatComponent(value, resourceType) {
+            let formatted = value.toLowerCase().trim();
+            
+            // Remove invalid characters based on resource type
+            if (resourceType.invalidCharacters) {
+                if (resourceType.invalidCharacters.includes('hyphens')) {
+                    formatted = formatted.replace(/-/g, '');
+                }
+                if (resourceType.invalidCharacters.includes('underscores')) {
+                    formatted = formatted.replace(/_/g, '');
+                }
+                if (resourceType.invalidCharacters.includes('spaces')) {
+                    formatted = formatted.replace(/\s+/g, '');
+                }
+                if (resourceType.invalidCharacters.includes('uppercase')) {
+                    formatted = formatted.toLowerCase();
+                }
+            }
+            
+            return formatted;
+        }
+
+        function getCurrentInputs() {
+            return {
+                organization: document.getElementById('organization').value.trim(),
+                businessUnit: document.getElementById('businessUnit').value.trim(),
+                workload: document.getElementById('workload').value.trim(),
+                environment: document.getElementById('environment').value,
+                region: document.getElementById('region').value,
+                instance: document.getElementById('instance').value.trim(),
+                resourceType: currentResourceType ? currentResourceType.shortName : ''
+            };
+        }
+
+        // Bulk Generation Functions
+        function generateBulkNames() {
+            const count = parseInt(document.getElementById('bulkCount').value);
+            const numberingStyle = document.getElementById('bulkNumbering').value;
+            const incrementInstance = document.getElementById('bulkIncrement').checked;
+            
+            const components = {
+                organization: document.getElementById('organization').value.trim(),
+                businessUnit: document.getElementById('businessUnit').value.trim(),
+                workload: document.getElementById('workload').value.trim(),
+                environment: document.getElementById('environment').value,
+                region: document.getElementById('region').value,
+                instance: document.getElementById('instance').value.trim()
+            };
+
+            const results = [];
+            for (let i = 0; i < count; i++) {
+                const currentComponents = { ...components };
+                
+                if (incrementInstance) {
+                    currentComponents.instance = generateInstanceNumber(i, numberingStyle);
+                }
+                
+                const result = generateResourceName(currentComponents, currentResourceType);
+                results.push(result);
+            }
+            
+            return results;
+        }
+
+        function generateInstanceNumber(index, style) {
+            switch (style) {
+                case '001':
+                    return String(index + 1).padStart(3, '0');
+                case '01':
+                    return String(index + 1).padStart(2, '0');
+                case '1':
+                    return String(index + 1);
+                case 'a':
+                    return String.fromCharCode(97 + index); // a, b, c...
+                default:
+                    return String(index + 1).padStart(3, '0');
+            }
+        }
+
+        function displayBulkResults(results) {
+            const resultDiv = document.getElementById('result');
+            const singleResult = document.getElementById('singleResult');
+            const bulkResults = document.getElementById('bulkResults');
+            const bulkResultsList = document.getElementById('bulkResultsList');
+            const resultTitle = document.getElementById('resultTitle');
+            const copyAllBtn = document.getElementById('copyAllBtn');
+
+            // Clear previous results
+            bulkResultsList.innerHTML = '';
+
+            // Show bulk results
+            singleResult.classList.add('hidden');
+            bulkResults.classList.remove('hidden');
+            copyAllBtn.classList.remove('hidden');
+            resultTitle.textContent = `Generated Names (${results.length})`;
+
+            results.forEach((result, index) => {
+                const resultItem = document.createElement('div');
+                resultItem.className = `bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700 rounded-lg p-3 flex items-center justify-between`;
+                
+                resultItem.innerHTML = `
+                    <div class="flex-1">
+                        <div class="flex items-center space-x-2">
+                            <span class="text-sm font-medium text-gray-600 dark:text-gray-400">#${index + 1}</span>
+                            <code class="font-mono text-green-800 dark:text-green-200 bg-green-100 dark:bg-green-800 px-2 py-1 rounded">${result.generatedName}</code>
+                        </div>
+                        ${result.errors.length > 0 ? `<div class="text-xs text-red-600 mt-1">⚠️ ${result.errors.join(', ')}</div>` : ''}
+                    </div>
+                    <button class="copy-single-btn bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded text-xs font-medium transition-colors duration-200" data-name="${result.generatedName}">
+                        Copy
+                    </button>
+                `;
+                
+                bulkResultsList.appendChild(resultItem);
+            });
+
+            // Add event listeners for individual copy buttons
+            document.querySelectorAll('.copy-single-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const name = this.getAttribute('data-name');
+                    navigator.clipboard.writeText(name).then(() => {
+                        showCopySuccess();
+                    });
+                });
+            });
+
+            // Copy all functionality
+            copyAllBtn.onclick = function() {
+                const allNames = results.map(r => r.generatedName).join('\n');
+                navigator.clipboard.writeText(allNames).then(() => {
+                    showCopySuccess();
+                });
+            };
+
+            resultDiv.classList.remove('hidden');
+        }
+
+        function generateName() {
+            if (!currentResourceType) return;
+
+            const isBulkGeneration = document.getElementById('bulkGeneration').checked;
+            
+            showLoading();
+            
+            // Simulate processing time for better UX
+            setTimeout(() => {
+                try {
+                    if (isBulkGeneration) {
+                        const results = generateBulkNames();
+                        displayBulkResults(results);
+                    } else {
+                        const components = {
+                            organization: document.getElementById('organization').value.trim(),
+                            businessUnit: document.getElementById('businessUnit').value.trim(),
+                            workload: document.getElementById('workload').value.trim(),
+                            environment: document.getElementById('environment').value,
+                            region: document.getElementById('region').value,
+                            instance: document.getElementById('instance').value.trim(),
+                            resourceType: currentResourceType.shortName
+                        };
+
+                        const result = generateResourceName(components, currentResourceType);
+                        displayResult(result);
+                    }
+                } finally {
+                    hideLoading();
+                }
+            }, 500); // 500ms delay for loading animation
+        }
+
+        function generateResourceName(components, resourceType) {
+            const errors = [];
+            const warnings = [];
+            const breakdown = [];
+
+            // Validate required components
+            if (!components.organization) errors.push('Organization is required');
+            if (!components.workload) errors.push('Workload/Application is required');
+            if (!components.environment) errors.push('Environment is required');
+            if (!components.region) errors.push('Region is required');
+            if (!components.instance) errors.push('Instance is required');
+
+            if (errors.length > 0) {
+                return { isValid: false, errors, warnings, generatedName: '', breakdown: [] };
+            }
+
+            // Build name components
+            const nameParts = [];
+            
+            // Resource type abbreviation (prefix)
+            const resourceTypeAbbr = formatComponent(resourceType.shortName, resourceType);
+            nameParts.push(resourceTypeAbbr);
+            breakdown.push({
+                component: 'Resource Type',
+                value: resourceTypeAbbr,
+                description: `${resourceType.name} (${resourceType.shortName})`
+            });
+
+            // Organization
+            if (components.organization) {
+                const org = formatComponent(components.organization, resourceType);
+                if (org) {
+                    nameParts.push(org);
+                    breakdown.push({
+                        component: 'Organization',
+                        value: org,
+                        description: 'Organization or company name'
+                    });
+                }
+            }
+
+            // Business Unit (optional)
+            if (components.businessUnit) {
+                const bu = formatComponent(components.businessUnit, resourceType);
+                if (bu) {
+                    nameParts.push(bu);
+                    breakdown.push({
+                        component: 'Business Unit',
+                        value: bu,
+                        description: 'Department or business unit'
+                    });
+                }
+            }
+
+            // Workload/Application
+            const workload = formatComponent(components.workload, resourceType);
+            nameParts.push(workload);
+            breakdown.push({
+                component: 'Workload',
+                value: workload,
+                description: 'Application or workload name'
+            });
+
+            // Environment
+            const environment = formatComponent(components.environment, resourceType);
+            nameParts.push(environment);
+            breakdown.push({
+                component: 'Environment',
+                value: environment,
+                description: 'Deployment environment'
+            });
+
+            // Region (for non-global scoped resources)
+            if (resourceType.scope !== 'global') {
+                const region = formatComponent(components.region, resourceType);
+                nameParts.push(region);
+                breakdown.push({
+                    component: 'Region',
+                    value: region,
+                    description: 'Azure region'
+                });
+            }
+
+            // Instance
+            const instance = formatComponent(components.instance, resourceType);
+            nameParts.push(instance);
+            breakdown.push({
+                component: 'Instance',
+                value: instance,
+                description: 'Instance number'
+            });
+
+            // Join parts with appropriate delimiter
+            const delimiter = (resourceType.invalidCharacters && resourceType.invalidCharacters.includes('hyphens')) ? '' : '-';
+            const generatedName = nameParts.join(delimiter);
+
+            // Validate length constraints
+            if (generatedName.length < resourceType.minLength) {
+                errors.push(`Name is too short. Minimum length: ${resourceType.minLength}, current: ${generatedName.length}`);
+            }
+            if (generatedName.length > resourceType.maxLength) {
+                errors.push(`Name is too long. Maximum length: ${resourceType.maxLength}, current: ${generatedName.length}`);
+            }
+
+            // Add scope information
+            if (resourceType.scope === 'global') {
+                warnings.push('This resource name must be globally unique across all of Azure');
+            }
+
+            return {
+                isValid: errors.length === 0,
+                errors,
+                warnings,
+                generatedName,
+                breakdown
+            };
+        }
+
+        function displayResult(result) {
+            const resultDiv = document.getElementById('result');
+            const singleResult = document.getElementById('singleResult');
+            const bulkResults = document.getElementById('bulkResults');
+            const generatedNameSpan = document.getElementById('generatedName');
+            const nameBreakdownDiv = document.getElementById('nameBreakdown');
+            const validationDiv = document.getElementById('validation');
+            const resultTitle = document.getElementById('resultTitle');
+            const copyAllBtn = document.getElementById('copyAllBtn');
+
+            // Show single result
+            singleResult.classList.remove('hidden');
+            bulkResults.classList.add('hidden');
+            copyAllBtn.classList.add('hidden');
+            resultTitle.textContent = 'Generated Name';
+            resultDiv.classList.remove('hidden');
+            
+            // Update generated name
+            generatedNameSpan.textContent = result.generatedName;
+
+            // Add copy functionality with animation
+            const copyBtn = document.getElementById('copyBtn');
+            copyBtn.onclick = function() {
+                navigator.clipboard.writeText(result.generatedName).then(() => {
+                    showCopySuccess();
+                });
+            };
+
+            // Update breakdown
+            nameBreakdownDiv.innerHTML = `
+                <h4 class="font-medium text-gray-900 dark:text-white mb-3">Name Breakdown</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    ${result.breakdown.map(item => `
+                        <div class="bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg p-3">
+                            <div class="font-medium text-gray-900 dark:text-white text-sm">${item.component}</div>
+                            <div class="text-gray-600 dark:text-gray-300 text-sm mt-1">${item.description}</div>
+                            <code class="text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-900/20 px-2 py-1 rounded text-sm font-mono mt-2 inline-block">${item.value}</code>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+
+            // Update validation
+            let validationHTML = '';
+            
+            if (result.errors.length > 0) {
+                validationHTML += `
+                    <div class="bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
+                        <div class="flex items-start">
+                            <svg class="w-5 h-5 text-red-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div>
+                                <h4 class="font-medium text-red-900 mb-2">Validation Errors</h4>
+                                <ul class="text-sm text-red-700 space-y-1">
+                                    ${result.errors.map(error => `<li>• ${error}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            if (result.warnings.length > 0) {
+                validationHTML += `
+                    <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                        <div class="flex items-start">
+                            <svg class="w-5 h-5 text-yellow-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                            </svg>
+                            <div>
+                                <h4 class="font-medium text-yellow-900 mb-2">Important Notes</h4>
+                                <ul class="text-sm text-yellow-700 space-y-1">
+                                    ${result.warnings.map(warning => `<li>• ${warning}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            if (result.isValid && result.warnings.length === 0) {
+                validationHTML = `
+                    <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+                        <div class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div>
+                                <h4 class="font-medium text-green-900 mb-1">Valid Name</h4>
+                                <p class="text-sm text-green-700">This name follows Azure naming best practices and constraints.</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            validationDiv.innerHTML = validationHTML;
+
+            // Generate and display suggested tags
+            if (result.isValid) {
+                generateSuggestedTags(result);
+                generateTerraformScript(result, getCurrentInputs(), currentResourceType);
+            }
+
+            // Scroll to result
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function generateSuggestedTags(result) {
+            const tagsListDiv = document.getElementById('tagsList');
+            const currentInputs = getCurrentInputs();
+            
+            const suggestedTags = [
+                { 
+                    key: 'Environment', 
+                    value: currentInputs.environment || 'prod',
+                    description: 'Deployment environment (prod, dev, test, stage)'
+                },
+                { 
+                    key: 'Owner', 
+                    value: currentInputs.businessUnit || 'it',
+                    description: 'Business unit or team responsible for the resource'
+                },
+                { 
+                    key: 'Project', 
+                    value: currentInputs.workload || 'default',
+                    description: 'Project or workload name'
+                },
+                { 
+                    key: 'CostCenter', 
+                    value: (currentInputs.businessUnit || 'it').toUpperCase() + '-001',
+                    description: 'Cost center for billing and chargeback'
+                },
+                { 
+                    key: 'Application', 
+                    value: currentInputs.workload || 'default',
+                    description: 'Application or service name'
+                },
+                { 
+                    key: 'DataClassification', 
+                    value: 'Internal',
+                    description: 'Data sensitivity level (Public, Internal, Confidential, Restricted)'
+                },
+                { 
+                    key: 'Criticality', 
+                    value: currentInputs.environment === 'prod' ? 'High' : 'Medium',
+                    description: 'Business criticality level (Low, Medium, High, Critical)'
+                },
+                { 
+                    key: 'DisasterRecovery', 
+                    value: currentInputs.environment === 'prod' ? 'Required' : 'NotRequired',
+                    description: 'Disaster recovery requirements'
+                }
+            ];
+
+            const tagsHTML = suggestedTags.map(tag => `
+                <div class="bg-white border border-blue-300 rounded-lg p-3 hover:bg-blue-50 transition-colors cursor-pointer" 
+                     onclick="copyTagToClipboard('${tag.key}', '${tag.value}')" 
+                     title="Click to copy tag">
+                    <div class="flex justify-between items-start">
+                        <div class="flex-1">
+                            <div class="font-medium text-blue-900 text-sm">${tag.key}</div>
+                            <div class="text-blue-700 text-sm font-mono bg-blue-100 px-2 py-1 rounded mt-1 inline-block">${tag.value}</div>
+                        </div>
+                        <svg class="w-4 h-4 text-blue-500 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <div class="text-xs text-blue-600 mt-2">${tag.description}</div>
+                </div>
+            `).join('');
+
+            tagsListDiv.innerHTML = tagsHTML;
+        }
+
+        async function copyTagToClipboard(key, value) {
+            const tagText = `${key}: ${value}`;
+            try {
+                await navigator.clipboard.writeText(tagText);
+                
+                // Show visual feedback
+                const event = document.createEvent('CustomEvent');
+                event.initCustomEvent('tagCopied', true, true, { key, value });
+                document.dispatchEvent(event);
+                
+                // Show temporary notification
+                showNotification(`Tag copied: ${tagText}`, 'success');
+            } catch (err) {
+                showNotification('Failed to copy tag', 'error');
+            }
+        }
+
+        function showNotification(message, type = 'info') {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg transition-all duration-300 ${
+                type === 'success' ? 'bg-green-600 text-white' : 
+                type === 'error' ? 'bg-red-600 text-white' : 
+                'bg-blue-600 text-white'
+            }`;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        async function copyToClipboard() {
+            const generatedNameSpan = document.getElementById('generatedName');
+            const copyBtn = document.getElementById('copyBtn');
+            
+            try {
+                await navigator.clipboard.writeText(generatedNameSpan.textContent || '');
+                
+                // Show feedback
+                const originalText = copyBtn.textContent;
+                copyBtn.textContent = 'Copied!';
+                copyBtn.classList.remove('bg-green-600', 'hover:bg-green-700');
+                copyBtn.classList.add('bg-green-700');
+                
+                setTimeout(() => {
+                    copyBtn.textContent = originalText;
+                    copyBtn.classList.remove('bg-green-700');
+                    copyBtn.classList.add('bg-green-600', 'hover:bg-green-700');
+                }, 2000);
+                
+            } catch (err) {
+                console.error('Failed to copy to clipboard:', err);
+                
+                // Fallback: select text
+                const range = document.createRange();
+                range.selectNode(generatedNameSpan);
+                window.getSelection().removeAllRanges();
+                window.getSelection().addRange(range);
+                
+                copyBtn.textContent = 'Selected!';
+                setTimeout(() => {
+                    copyBtn.textContent = 'Copy';
+                    window.getSelection().removeAllRanges();
+                }, 2000);
+            }
+        }
+
+        function toggleTerraformOptions() {
+            const checkbox = document.getElementById('generateTerraform');
+            const options = document.getElementById('terraformOptions');
+            
+            if (checkbox.checked) {
+                options.classList.remove('hidden');
+            } else {
+                options.classList.add('hidden');
+            }
+        }
+
+        function generateTerraformScript(result, components, resourceType) {
+            const generateTerraform = document.getElementById('generateTerraform').checked;
+            const terraformScriptDiv = document.getElementById('terraformScript');
+            
+            if (!generateTerraform) {
+                terraformScriptDiv.classList.add('hidden');
+                return;
+            }
+
+            const providerVersion = document.getElementById('terraformProviderVersion').value;
+            const containerResource = document.getElementById('containerResource').value;
+            const location = document.getElementById('location').value || 'var.location';
+            
+            const script = getTerraformTemplate(resourceType, result.generatedName, components, {
+                providerVersion,
+                containerResource,
+                location,
+                provider: currentProvider
+            });
+
+            document.getElementById('terraformCode').textContent = script;
+            terraformScriptDiv.classList.remove('hidden');
+        }
+
+        function getTerraformTemplate(resourceType, resourceName, components, options) {
+            const tags = generateTerraformTags(components);
+            const provider = options.provider || 'azure';
+            
+            // Get terraform resource type mapping based on provider
+            const terraformResourceType = getTerraformResourceType(resourceType.name, provider);
+            
+            let template = `# Terraform configuration for ${resourceType.name}
+# Generated using Multi-Cloud Naming Tool - following ${provider.toUpperCase()} best practices
+
+`;
+
+            // Add provider configuration based on cloud provider
+            if (provider === 'azure') {
+                template += getAzureProviderConfig(options.providerVersion);
+            } else if (provider === 'aws') {
+                template += getAWSProviderConfig(options.providerVersion);
+            } else if (provider === 'gcp') {
+                template += getGCPProviderConfig(options.providerVersion);
+            }
+
+            // Add main resource configuration
+            const resourceConfig = getResourceConfiguration(resourceType, resourceName, options, provider);
+            template += `resource "${terraformResourceType.type}" "${terraformResourceType.name}" {
+${resourceConfig}
+${getTerraformResourceSpecificConfig(resourceType, components, provider)}
+  
+  tags = {
+${tags}
+  }
+}
+
+# Output the resource name
+output "${terraformResourceType.name}_name" {
+  description = "The name of the ${resourceType.name}"
+  value       = ${terraformResourceType.type}.${terraformResourceType.name}.name
+}
+
+# Output the resource ID
+output "${terraformResourceType.name}_id" {
+  description = "The ID of the ${resourceType.name}"
+  value       = ${terraformResourceType.type}.${terraformResourceType.name}.id
+}`;
+
+            return template;
+        }
+
+        function getAzureProviderConfig(providerVersion) {
+            const version = providerVersion || '3.0';
+            return `terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~> ${version}"
+    }
+  }
+}
+
+provider "azurerm" {
+  features {}
+}
+
+# Data sources for current client configuration
+data "azurerm_client_config" "current" {}
+
+`;
+        }
+
+        function getAWSProviderConfig(providerVersion) {
+            const version = providerVersion || '5.0';
+            return `terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> ${version}"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.aws_region
+}
+
+# Data sources for current AWS account
+data "aws_caller_identity" "current" {}
+data "aws_region" "current" {}
+
+`;
+        }
+
+        function getGCPProviderConfig(providerVersion) {
+            const version = providerVersion || '4.84';
+            return `terraform {
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = "~> ${version}"
+    }
+  }
+}
+
+provider "google" {
+  project = var.project_id
+  region  = var.region
+}
+
+# Data sources for current GCP project
+data "google_client_config" "current" {}
+
+`;
+        }
+
+        function getResourceConfiguration(resourceType, resourceName, options, provider = 'azure') {
+            let config = '';
+            
+            if (provider === 'azure') {
+                // Azure-specific configuration
+                const noResourceGroupResources = ['Management Group'];
+                const noLocationResources = ['Management Group'];
+                const customNameResources = {
+                    'Management Group': 'name',
+                    'Subnet': 'name'
+                };
+
+                // Add name
+                const nameAttr = customNameResources[resourceType.name] || 'name';
+                config += `  ${nameAttr} = "${resourceName}"\n`;
+                
+                // Add location if needed
+                if (!noLocationResources.includes(resourceType.name)) {
+                    config += `  location = ${options.location}\n`;
+                }
+                
+                // Add resource group if needed
+                if (!noResourceGroupResources.includes(resourceType.name)) {
+                    const resourceGroupValue = options.containerResource || 'azurerm_resource_group.example.name';
+                    config += `  resource_group_name = ${resourceGroupValue}\n`;
+                }
+            } else if (provider === 'aws') {
+                // AWS-specific configuration
+                config += `  name = "${resourceName}"\n`;
+                
+                // Add region if specified
+                if (options.containerResource) {
+                    config += `  # Deployed in region: ${options.containerResource}\n`;
+                }
+                
+                // Add common AWS attributes
+                if (resourceType.name !== 'S3 Bucket') {
+                    config += `  availability_zone = var.availability_zone\n`;
+                }
+            } else if (provider === 'gcp') {
+                // GCP-specific configuration
+                config += `  name = "${resourceName}"\n`;
+                
+                // Add project if specified
+                if (options.containerResource) {
+                    config += `  project = "${options.containerResource}"\n`;
+                } else {
+                    config += `  project = var.project_id\n`;
+                }
+                
+                // Add zone/region based on resource type
+                if (['Compute Instance', 'GKE Cluster'].includes(resourceType.name)) {
+                    config += `  zone = var.zone\n`;
+                } else {
+                    config += `  region = var.region\n`;
+                }
+            }
+            
+            return config;
+        }
+
+        function getTerraformResourceType(resourceName, provider = 'azure') {
+            const resourceMaps = {
+                azure: {
+                    'Virtual Machine': { type: 'azurerm_linux_virtual_machine', name: 'vm' },
+                    'Web App': { type: 'azurerm_linux_web_app', name: 'webapp' },
+                    'Function App': { type: 'azurerm_linux_function_app', name: 'function' },
+                    'Storage Account': { type: 'azurerm_storage_account', name: 'storage' },
+                    'SQL Database': { type: 'azurerm_mssql_database', name: 'sqldb' },
+                    'Cosmos DB': { type: 'azurerm_cosmosdb_account', name: 'cosmos' },
+                    'Redis Cache': { type: 'azurerm_redis_cache', name: 'redis' },
+                    'Key Vault': { type: 'azurerm_key_vault', name: 'keyvault' },
+                    'Container Instance': { type: 'azurerm_container_group', name: 'container' },
+                    'Kubernetes Service': { type: 'azurerm_kubernetes_cluster', name: 'aks' },
+                    'Virtual Network': { type: 'azurerm_virtual_network', name: 'vnet' },
+                    'Subnet': { type: 'azurerm_subnet', name: 'subnet' },
+                    'Network Security Group': { type: 'azurerm_network_security_group', name: 'nsg' },
+                    'Public IP': { type: 'azurerm_public_ip', name: 'pip' },
+                    'Load Balancer': { type: 'azurerm_lb', name: 'lb' },
+                    'Application Gateway': { type: 'azurerm_application_gateway', name: 'agw' },
+                    'Resource Group': { type: 'azurerm_resource_group', name: 'rg' },
+                    'Management Group': { type: 'azurerm_management_group', name: 'mg' }
+                },
+                aws: {
+                    'EC2 Instance': { type: 'aws_instance', name: 'instance' },
+                    'S3 Bucket': { type: 'aws_s3_bucket', name: 'bucket' },
+                    'RDS Instance': { type: 'aws_db_instance', name: 'rds' },
+                    'Lambda Function': { type: 'aws_lambda_function', name: 'lambda' },
+                    'EKS Cluster': { type: 'aws_eks_cluster', name: 'eks' },
+                    'VPC': { type: 'aws_vpc', name: 'vpc' },
+                    'Subnet': { type: 'aws_subnet', name: 'subnet' },
+                    'Security Group': { type: 'aws_security_group', name: 'sg' },
+                    'Load Balancer': { type: 'aws_lb', name: 'lb' },
+                    'CloudWatch Log Group': { type: 'aws_cloudwatch_log_group', name: 'log_group' }
+                },
+                gcp: {
+                    'Compute Instance': { type: 'google_compute_instance', name: 'instance' },
+                    'Cloud Storage Bucket': { type: 'google_storage_bucket', name: 'bucket' },
+                    'Cloud SQL Instance': { type: 'google_sql_database_instance', name: 'sql' },
+                    'Cloud Function': { type: 'google_cloudfunctions_function', name: 'function' },
+                    'GKE Cluster': { type: 'google_container_cluster', name: 'gke' },
+                    'VPC Network': { type: 'google_compute_network', name: 'network' },
+                    'Subnet': { type: 'google_compute_subnetwork', name: 'subnet' },
+                    'Firewall Rule': { type: 'google_compute_firewall', name: 'firewall' },
+                    'Load Balancer': { type: 'google_compute_global_forwarding_rule', name: 'lb' }
+                }
+            };
+            
+            const providerMap = resourceMaps[provider] || resourceMaps.azure;
+            return providerMap[resourceName] || { type: `${provider}_resource`, name: 'resource' };
+        }
+
+        function getTerraformResourceSpecificConfig(resourceType, components, provider = 'azure') {
+            if (provider === 'azure') {
+                return getAzureTerraformConfig(resourceType);
+            } else if (provider === 'aws') {
+                return getAWSTerraformConfig(resourceType);
+            } else if (provider === 'gcp') {
+                return getGCPTerraformConfig(resourceType);
+            }
+            return '';
+        }
+
+        function getAzureTerraformConfig(resourceType) {
+            const configs = {
+                'Virtual Machine': `  size                = "Standard_B2s"
+  admin_username      = "azureuser"
+  
+  disable_password_authentication = true
+  
+  network_interface_ids = [
+    azurerm_network_interface.example.id,
+  ]
+  
+  admin_ssh_key {
+    username   = "azureuser"
+    public_key = file("~/.ssh/id_rsa.pub")
+  }
+  
+  os_disk {
+    caching              = "ReadWrite"
+    storage_account_type = "Premium_LRS"
+  }
+  
+  source_image_reference {
+    publisher = "Canonical"
+    offer     = "0001-com-ubuntu-server-focal"
+    sku       = "20_04-lts-gen2"
+    version   = "latest"
+  }`,
+                
+                'Storage Account': `  account_tier             = "Standard"
+  account_replication_type = "LRS"
+  account_kind             = "StorageV2"`,
+                
+                'Web App': `  service_plan_id = azurerm_service_plan.example.id
+  
+  site_config {
+    always_on = true
+    
+    application_stack {
+      dotnet_version = "6.0"
+    }
+  }
+  
+  app_settings = {
+    "WEBSITE_RUN_FROM_PACKAGE" = "1"
+  }`,
+                
+                'Resource Group': `  # Resource group is the foundation for other resources`
+            };
+            
+            return configs[resourceType.name] || `  # Add resource-specific configuration here`;
+        }
+
+        function getAWSTerraformConfig(resourceType) {
+            const configs = {
+                'EC2 Instance': `  ami           = var.ami_id
+  instance_type = "t3.micro"
+  
+  subnet_id = var.subnet_id
+  vpc_security_group_ids = [var.security_group_id]
+  
+  user_data = base64encode(<<-EOF
+    #!/bin/bash
+    yum update -y
+  EOF
+  )`,
+                
+                'S3 Bucket': `  force_destroy = true
+  
+  versioning {
+    enabled = true
+  }
+  
+  server_side_encryption_configuration {
+    rule {
+      apply_server_side_encryption_by_default {
+        sse_algorithm = "AES256"
+      }
+    }
+  }
+  
+  lifecycle_rule {
+    enabled = true
+    
+    transition {
+      days          = 30
+      storage_class = "STANDARD_IA"
+    }
+  }`,
+                
+                'Lambda Function': `  runtime = "python3.9"
+  handler = "lambda_function.lambda_handler"
+  timeout = 60
+  
+  filename         = "lambda_function.zip"
+  source_code_hash = filebase64sha256("lambda_function.zip")
+  
+  environment {
+    variables = {
+      ENVIRONMENT = var.environment
+    }
+  }`,
+                
+                'VPC': `  cidr_block           = "10.0.0.0/16"
+  enable_dns_hostnames = true
+  enable_dns_support   = true`,
+                
+                'Subnet': `  vpc_id                  = var.vpc_id
+  cidr_block              = "10.0.1.0/24"
+  availability_zone       = var.availability_zone
+  map_public_ip_on_launch = false`,
+                
+                'Security Group': `  vpc_id = var.vpc_id
+  
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }`,
+                
+                'RDS Instance': `  engine               = "mysql"
+  engine_version       = "8.0"
+  instance_class       = "db.t3.micro"
+  allocated_storage    = 20
+  storage_encrypted    = true
+  
+  db_name  = var.database_name
+  username = var.database_username
+  password = var.database_password
+  
+  vpc_security_group_ids = [var.security_group_id]
+  db_subnet_group_name   = var.db_subnet_group_name
+  
+  backup_retention_period = 7
+  backup_window          = "03:00-04:00"
+  maintenance_window     = "sun:04:00-sun:05:00"
+  
+  skip_final_snapshot = true`,
+                
+                'Elastic Load Balancer': `  load_balancer_type = "application"
+  subnets            = var.subnet_ids
+  security_groups    = [var.security_group_id]
+  
+  enable_deletion_protection = false`,
+                
+                'Auto Scaling Group': `  min_size         = 1
+  max_size         = 3
+  desired_capacity = 2
+  
+  vpc_zone_identifier = var.subnet_ids
+  launch_template {
+    id      = var.launch_template_id
+    version = "$Latest"
+  }`,
+                
+                'IAM Role': `  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = "sts:AssumeRole"
+        Effect = "Allow"
+        Principal = {
+          Service = "ec2.amazonaws.com"
+        }
+      }
+    ]
+  })`
+            };
+            
+            return configs[resourceType.name] || `  # Add AWS resource-specific configuration here`;
+        }
+
+        function getGCPTerraformConfig(resourceType) {
+            const configs = {
+                'Compute Instance': `  machine_type = "e2-micro"
+  
+  boot_disk {
+    initialize_params {
+      image = "debian-cloud/debian-11"
+    }
+  }
+  
+  network_interface {
+    network = "default"
+    access_config {}
+  }`,
+                
+                'Cloud Storage Bucket': `  location      = var.region
+  force_destroy = true
+  
+  versioning {
+    enabled = true
+  }`,
+                
+                'Cloud Function': `  runtime     = "python39"
+  entry_point = "hello_world"
+  
+  source_archive_bucket = google_storage_bucket.function_bucket.name
+  source_archive_object = google_storage_bucket_object.function_source.name`
+            };
+            
+            return configs[resourceType.name] || `  # Add resource-specific configuration here`;
+        }
+
+        function generateTerraformTags(components) {
+            const currentInputs = getCurrentInputs();
+            
+            const tags = {
+                'Environment': currentInputs.environment || 'prod',
+                'Owner': currentInputs.businessUnit || 'it',
+                'Project': currentInputs.workload || 'default',
+                'CostCenter': (currentInputs.businessUnit || 'it').toUpperCase() + '-001',
+                'Application': currentInputs.workload || 'default',
+                'ManagedBy': 'Terraform',
+                'CreatedBy': 'AzureNamingTool'
+            };
+            
+            return Object.entries(tags)
+                .map(([key, value]) => `    ${key} = "${value}"`)
+                .join('\n');
+        }
+
+        async function copyTerraformScript() {
+            const terraformCode = document.getElementById('terraformCode');
+            const copyBtn = document.getElementById('copyTerraformBtn');
+            
+            try {
+                await navigator.clipboard.writeText(terraformCode.textContent || '');
+                
+                // Show feedback
+                const originalText = copyBtn.textContent;
+                copyBtn.textContent = 'Copied!';
+                copyBtn.classList.remove('bg-blue-600', 'hover:bg-blue-700');
+                copyBtn.classList.add('bg-blue-700');
+                
+                setTimeout(() => {
+                    copyBtn.textContent = originalText;
+                    copyBtn.classList.remove('bg-blue-700');
+                    copyBtn.classList.add('bg-blue-600', 'hover:bg-blue-700');
+                }, 2000);
+                
+                showNotification('Terraform script copied to clipboard!', 'success');
+                
+            } catch (err) {
+                showNotification('Failed to copy Terraform script', 'error');
+            }
+        }
+
+        // Initialize the application when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Dark Mode Implementation
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const sunIcon = document.getElementById('sunIcon');
+            const moonIcon = document.getElementById('moonIcon');
+            const isDarkMode = localStorage.getItem('darkMode') === 'true';
+            
+            function updateIcons(isDark) {
+                if (isDark) {
+                    sunIcon.classList.remove('hidden');
+                    moonIcon.classList.add('hidden');
+                } else {
+                    sunIcon.classList.add('hidden');
+                    moonIcon.classList.remove('hidden');
+                }
+            }
+            
+            if (isDarkMode) {
+                document.documentElement.classList.add('dark');
+            }
+            updateIcons(isDarkMode);
+            
+            darkModeToggle.addEventListener('click', function() {
+                document.documentElement.classList.toggle('dark');
+                const isDark = document.documentElement.classList.contains('dark');
+                localStorage.setItem('darkMode', isDark);
+                updateIcons(isDark);
+            });
+
+            // Copy Success - Simple alert instead of notification
+            function showCopySuccess() {
+                // Simple visual feedback - could be enhanced with toast library
+                console.log('Copied to clipboard successfully!');
+            }
+
+            // Loading State Management
+            function showLoading() {
+                const overlay = document.getElementById('loadingOverlay');
+                const btn = document.getElementById('generateBtn');
+                const btnText = document.getElementById('generateBtnText');
+                const btnSpinner = document.getElementById('generateBtnSpinner');
+                
+                overlay.classList.remove('hidden');
+                btnText.classList.add('invisible');
+                btnSpinner.classList.remove('hidden');
+                btn.disabled = true;
+            }
+
+            function hideLoading() {
+                const overlay = document.getElementById('loadingOverlay');
+                const btn = document.getElementById('generateBtn');
+                const btnText = document.getElementById('generateBtnText');
+                const btnSpinner = document.getElementById('generateBtnSpinner');
+                
+                overlay.classList.add('hidden');
+                btnText.classList.remove('invisible');
+                btnSpinner.classList.add('hidden');
+                btn.disabled = false;
+            }
+
+            // Keyboard Shortcuts
+            document.addEventListener('keydown', function(e) {
+                // Ctrl+Enter to generate
+                if (e.ctrlKey && e.key === 'Enter') {
+                    e.preventDefault();
+                    const generateBtn = document.getElementById('generateBtn');
+                    if (!generateBtn.disabled) {
+                        generateBtn.click();
+                    }
+                }
+                
+                // Ctrl+C to copy (when result is visible)
+                if (e.ctrlKey && e.key === 'c') {
+                    const result = document.getElementById('result');
+                    if (!result.classList.contains('hidden')) {
+                        e.preventDefault();
+                        const copyBtn = document.getElementById('copyBtn');
+                        const copyAllBtn = document.getElementById('copyAllBtn');
+                        if (!copyAllBtn.classList.contains('hidden')) {
+                            copyAllBtn.click();
+                        } else if (copyBtn) {
+                            copyBtn.click();
+                        }
+                    }
+                }
+            });
+
+            // Bulk Generation Toggle
+            const bulkGenerationToggle = document.getElementById('bulkGeneration');
+            const bulkOptions = document.getElementById('bulkOptions');
+            const generateBtnText = document.getElementById('generateBtnText');
+
+            bulkGenerationToggle.addEventListener('change', function() {
+                if (this.checked) {
+                    bulkOptions.classList.remove('hidden');
+                    generateBtnText.textContent = 'Generate Resource Names';
+                } else {
+                    bulkOptions.classList.add('hidden');
+                    generateBtnText.textContent = 'Generate Resource Name';
+                }
+            });
+            // Set up provider button event listeners
+            document.getElementById('azureProvider').addEventListener('click', () => switchProvider('azure'));
+            document.getElementById('awsProvider').addEventListener('click', () => switchProvider('aws'));
+            document.getElementById('gcpProvider').addEventListener('click', () => switchProvider('gcp'));
+            
+            // Set Azure as the default provider
+            switchProvider('azure');
+            
+            // Populate category dropdown with Azure categories initially
+            populateCategories();
+            
+            // Set up other event listeners
+            document.getElementById('category').addEventListener('change', onCategoryChange);
+            document.getElementById('resourceType').addEventListener('change', onResourceTypeChange);
+            
+            // Set up input event listeners for real-time validation
+            ['organization', 'businessUnit', 'workload', 'environment', 'region', 'instance'].forEach(field => {
+                const element = document.getElementById(field);
+                if (element) {
+                    element.addEventListener('input', updateFormState);
+                }
+            });
+            
+            // Generate button
+            document.getElementById('generateBtn').addEventListener('click', generateName);
+            
+            // Terraform generation toggle
+            document.getElementById('generateTerraform').addEventListener('change', toggleTerraformOptions);
+            
+            // Copy Terraform button
+            document.getElementById('copyTerraformBtn').addEventListener('click', copyTerraformScript);
+        });
+    </script>
+</body>
+</html>

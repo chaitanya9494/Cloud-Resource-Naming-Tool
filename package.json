@@ -1,0 +1,24 @@
+{
+  "name": "azure-naming-tool",
+  "version": "1.0.0",
+  "description": "Modern Azure Resource Naming Tool with Terraform generation - following Microsoft best practices",
+  "main": "index.html",
+  "scripts": {
+    "start": "start index.html",
+    "serve": "python -m http.server 8000",
+    "serve-node": "npx http-server . -p 8000 -o"
+  },
+  "keywords": [
+    "azure",
+    "naming",
+    "terraform",
+    "infrastructure",
+    "cloud",
+    "microsoft",
+    "best-practices"
+  ],
+  "author": "Azure Naming Tool",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {}
+}
