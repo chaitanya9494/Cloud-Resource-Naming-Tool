@@ -1254,6 +1254,31 @@
             resultDiv.classList.remove('hidden');
         }
 
+        // Loading State Management
+        function showLoading() {
+            const overlay = document.getElementById('loadingOverlay');
+            const btn = document.getElementById('generateBtn');
+            const btnText = document.getElementById('generateBtnText');
+            const btnSpinner = document.getElementById('generateBtnSpinner');
+            
+            overlay.classList.remove('hidden');
+            btnText.classList.add('invisible');
+            btnSpinner.classList.remove('hidden');
+            btn.disabled = true;
+        }
+
+        function hideLoading() {
+            const overlay = document.getElementById('loadingOverlay');
+            const btn = document.getElementById('generateBtn');
+            const btnText = document.getElementById('generateBtnText');
+            const btnSpinner = document.getElementById('generateBtnSpinner');
+            
+            overlay.classList.add('hidden');
+            btnText.classList.remove('invisible');
+            btnSpinner.classList.add('hidden');
+            btn.disabled = false;
+        }
+
         function generateName() {
             if (!currentResourceType) return;
 
@@ -2215,31 +2240,6 @@ data "google_client_config" "current" {}
             function showCopySuccess() {
                 // Simple visual feedback - could be enhanced with toast library
                 console.log('Copied to clipboard successfully!');
-            }
-
-            // Loading State Management
-            function showLoading() {
-                const overlay = document.getElementById('loadingOverlay');
-                const btn = document.getElementById('generateBtn');
-                const btnText = document.getElementById('generateBtnText');
-                const btnSpinner = document.getElementById('generateBtnSpinner');
-                
-                overlay.classList.remove('hidden');
-                btnText.classList.add('invisible');
-                btnSpinner.classList.remove('hidden');
-                btn.disabled = true;
-            }
-
-            function hideLoading() {
-                const overlay = document.getElementById('loadingOverlay');
-                const btn = document.getElementById('generateBtn');
-                const btnText = document.getElementById('generateBtnText');
-                const btnSpinner = document.getElementById('generateBtnSpinner');
-                
-                overlay.classList.add('hidden');
-                btnText.classList.remove('invisible');
-                btnSpinner.classList.add('hidden');
-                btn.disabled = false;
             }
 
             // Keyboard Shortcuts
