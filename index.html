@@ -232,18 +232,27 @@
                         <div>
                             <h4 id="bestPracticesTitle" class="font-medium text-blue-900 dark:text-white mb-2">📋 Microsoft Azure Best Practices</h4>
                             <div id="bestPracticesContent" class="text-sm text-blue-800 dark:text-white space-y-2">
-                                <p><strong>Customizable Components (Text Input):</strong></p>
+                                <p><strong>Microsoft 2024 Naming Pattern:</strong></p>
+                                <div class="bg-gray-100 dark:bg-gray-700 p-2 rounded text-center font-mono text-sm">
+                                    &lt;resource-type&gt;-&lt;workload&gt;-&lt;environment&gt;-&lt;region&gt;-&lt;instance&gt;
+                                </div>
+                                <p class="mt-3"><strong>Required Components:</strong></p>
                                 <ul class="list-disc list-inside ml-4 space-y-1">
-                                    <li><strong>Organization:</strong> Your company/organization identifier</li>
-                                    <li><strong>Business Unit:</strong> Your department naming (e.g., fin, mktg, hr, product)</li>
-                                    <li><strong>Workload/Application:</strong> Your project or application name</li>
-                                    <li><strong>Instance:</strong> Your numbering scheme (001, 01, etc.)</li>
+                                    <li><strong>Resource Type:</strong> Official Azure abbreviations (vm, app, func, st, etc.)</li>
+                                    <li><strong>Workload/Application:</strong> Project/application name (navigator, sharepoint, hadoop)</li>
+                                    <li><strong>Environment:</strong> Deployment stage (prod, dev, test, stage)</li>
+                                    <li><strong>Instance:</strong> Numbering for multiple resources (001, 01, etc.)</li>
                                 </ul>
-                                <p class="mt-3"><strong>Standardized Components (Dropdown):</strong></p>
+                                <p class="mt-3"><strong>Optional Components:</strong></p>
                                 <ul class="list-disc list-inside ml-4 space-y-1">
-                                    <li><strong>Resource Type:</strong> Official Azure service abbreviations</li>
-                                    <li><strong>Environment:</strong> Standard deployment stages (prod, dev, test, stage)</li>
-                                    <li><strong>Region:</strong> Official Azure region codes</li>
+                                    <li><strong>Business Unit:</strong> Department/division (fin, mktg, it, corp)</li>
+                                    <li><strong>Region:</strong> Azure region (eastus, westus, westeu)</li>
+                                </ul>
+                                <p class="mt-3"><strong>Examples from Microsoft:</strong></p>
+                                <ul class="list-disc list-inside ml-4 space-y-1 font-mono text-xs">
+                                    <li>vm-sharepoint-prod-001</li>
+                                    <li>app-navigator-dev-001</li>
+                                    <li>func-emissions-test-001</li>
                                 </ul>
                             </div>
                         </div>
@@ -258,19 +267,21 @@
                         <!-- Organization -->
                         <div>
                             <label for="organization" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                                Organization <span class="text-red-500">*</span>
+                                Organization <span class="text-gray-400">(Optional)</span>
                             </label>
                             <input type="text" id="organization" placeholder="e.g., contoso, acme" 
                                    class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white dark:placeholder-gray-400">
-                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Company or organization name</p>
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Top-level organization name (optional prefix)</p>
                         </div>
 
                         <!-- Business Unit -->
                         <div>
-                            <label for="businessUnit" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Business Unit</label>
+                            <label for="businessUnit" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                Business Unit <span class="text-gray-400">(Optional)</span>
+                            </label>
                             <input type="text" id="businessUnit" placeholder="e.g., fin, mktg, product, it, hr, corp" 
                                    class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white dark:placeholder-gray-400">
-                            <p class="text-xs text-gray-500 mt-1">Business unit or department (organization-specific)</p>
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Department or business division (as per Microsoft examples)</p>
                         </div>
 
                         <!-- Workload/Application -->
@@ -278,9 +289,9 @@
                             <label for="workload" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                                 Workload/Application <span class="text-red-500">*</span>
                             </label>
-                            <input type="text" id="workload" placeholder="e.g., navigator, emissions, sharepoint" 
+                            <input type="text" id="workload" placeholder="e.g., navigator, emissions, sharepoint, hadoop" 
                                    class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white dark:placeholder-gray-400">
-                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Name of the workload or application</p>
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Project/application name (as per Microsoft examples)</p>
                         </div>
 
                         <!-- Environment -->
@@ -302,10 +313,10 @@
                         <!-- Region -->
                         <div>
                             <label for="region" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                                Region <span class="text-red-500">*</span>
+                                Region <span class="text-gray-400">(Optional)</span>
                             </label>
                             <select id="region" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white">
-                                <option value="">Select Region</option>
+                                <option value="">Select Region (Optional)</option>
                                 <option value="eastus">East US (eastus)</option>
                                 <option value="eastus2">East US 2 (eastus2)</option>
                                 <option value="westus">West US (westus)</option>
@@ -840,20 +851,30 @@
             
             const bestPractices = {
                 azure: {
-                    title: '📋 Microsoft Azure Best Practices',
+                    title: '📋 Microsoft Azure Best Practices (2024)',
                     content: `
-                        <p><strong>Customizable Components (Text Input):</strong></p>
+                        <p><strong>Microsoft 2024 Naming Pattern:</strong></p>
+                        <div class="bg-gray-100 dark:bg-gray-700 p-2 rounded text-center font-mono text-sm mb-3">
+                            &lt;resource-type&gt;-&lt;workload&gt;-&lt;environment&gt;-&lt;instance&gt;
+                        </div>
+                        <p><strong>Required Components:</strong></p>
                         <ul class="list-disc list-inside ml-4 space-y-1">
-                            <li><strong>Organization:</strong> Your company/organization identifier</li>
-                            <li><strong>Business Unit:</strong> Your department naming (e.g., fin, mktg, hr, product)</li>
-                            <li><strong>Workload/Application:</strong> Your project or application name</li>
-                            <li><strong>Instance:</strong> Your numbering scheme (001, 01, etc.)</li>
+                            <li><strong>Resource Type:</strong> Official Azure abbreviations (vm, app, func, st, etc.)</li>
+                            <li><strong>Workload/Application:</strong> Project/application name (navigator, sharepoint, hadoop)</li>
+                            <li><strong>Environment:</strong> Deployment stage (prod, dev, test, stage)</li>
+                            <li><strong>Instance:</strong> Numbering for multiple resources (001, 01, etc.)</li>
                         </ul>
-                        <p class="mt-3"><strong>Standardized Components (Dropdown):</strong></p>
+                        <p class="mt-3"><strong>Optional Components:</strong></p>
                         <ul class="list-disc list-inside ml-4 space-y-1">
-                            <li><strong>Resource Type:</strong> Official Azure service abbreviations</li>
-                            <li><strong>Environment:</strong> Standard deployment stages (prod, dev, test, stage)</li>
-                            <li><strong>Region:</strong> Official Azure region codes</li>
+                            <li><strong>Business Unit:</strong> Department/division (fin, mktg, it, corp)</li>
+                            <li><strong>Region:</strong> Azure region (eastus, westus, westeu) - for regional resources</li>
+                        </ul>
+                        <p class="mt-3"><strong>Microsoft Examples:</strong></p>
+                        <ul class="list-disc list-inside ml-4 space-y-1 font-mono text-xs">
+                            <li>vm-sharepoint-prod-001</li>
+                            <li>app-navigator-dev-001</li>
+                            <li>func-emissions-test-001</li>
+                            <li>st&lt;workload&gt;&lt;env&gt;&lt;###&gt; (storage: no hyphens)</li>
                         </ul>
                     `,
                     colorClass: 'text-blue-800 dark:text-white'
@@ -1317,21 +1338,20 @@
             const warnings = [];
             const breakdown = [];
 
-            // Validate required components
-            if (!components.organization) errors.push('Organization is required');
-            if (!components.workload) errors.push('Workload/Application is required');
-            if (!components.environment) errors.push('Environment is required');
-            if (!components.region) errors.push('Region is required');
-            if (!components.instance) errors.push('Instance is required');
+            // Validate required components (per Microsoft 2024 standards)
+            if (!components.workload) errors.push('Workload/Application is required (core Microsoft requirement)');
+            if (!components.environment) errors.push('Environment is required (core Microsoft requirement)');
+            if (!components.instance) errors.push('Instance is required (core Microsoft requirement)');
 
             if (errors.length > 0) {
                 return { isValid: false, errors, warnings, generatedName: '', breakdown: [] };
             }
 
-            // Build name components
+            // Build name components following Microsoft pattern: 
+            // <resource-type>-<workload>-<environment>-<region>-<instance>
             const nameParts = [];
             
-            // Resource type abbreviation (prefix)
+            // 1. Resource type abbreviation (always first)
             const resourceTypeAbbr = formatComponent(resourceType.shortName, resourceType);
             nameParts.push(resourceTypeAbbr);
             breakdown.push({
@@ -1340,20 +1360,7 @@
                 description: `${resourceType.name} (${resourceType.shortName})`
             });
 
-            // Organization
-            if (components.organization) {
-                const org = formatComponent(components.organization, resourceType);
-                if (org) {
-                    nameParts.push(org);
-                    breakdown.push({
-                        component: 'Organization',
-                        value: org,
-                        description: 'Organization or company name'
-                    });
-                }
-            }
-
-            // Business Unit (optional)
+            // 2. Business Unit (optional - if provided, insert after resource type)
             if (components.businessUnit) {
                 const bu = formatComponent(components.businessUnit, resourceType);
                 if (bu) {
@@ -1361,47 +1368,47 @@
                     breakdown.push({
                         component: 'Business Unit',
                         value: bu,
-                        description: 'Department or business unit'
+                        description: 'Department/division (optional per Microsoft)'
                     });
                 }
             }
 
-            // Workload/Application
+            // 3. Workload/Application (required)
             const workload = formatComponent(components.workload, resourceType);
             nameParts.push(workload);
             breakdown.push({
                 component: 'Workload',
                 value: workload,
-                description: 'Application or workload name'
+                description: 'Application or workload name (required per Microsoft)'
             });
 
-            // Environment
+            // 4. Environment (required)
             const environment = formatComponent(components.environment, resourceType);
             nameParts.push(environment);
             breakdown.push({
                 component: 'Environment',
                 value: environment,
-                description: 'Deployment environment'
+                description: 'Deployment environment (required per Microsoft)'
             });
 
-            // Region (for non-global scoped resources)
-            if (resourceType.scope !== 'global') {
+            // 5. Region (optional - only for non-global scoped resources)
+            if (resourceType.scope !== 'global' && components.region) {
                 const region = formatComponent(components.region, resourceType);
                 nameParts.push(region);
                 breakdown.push({
                     component: 'Region',
                     value: region,
-                    description: 'Azure region'
+                    description: 'Azure region (optional per Microsoft)'
                 });
             }
 
-            // Instance
+            // 6. Instance (required)
             const instance = formatComponent(components.instance, resourceType);
             nameParts.push(instance);
             breakdown.push({
                 component: 'Instance',
                 value: instance,
-                description: 'Instance number'
+                description: 'Instance number (required per Microsoft)'
             });
 
             // Join parts with appropriate delimiter
